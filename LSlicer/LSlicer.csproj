@@ -1,0 +1,809 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AE8FF690-65C8-44E5-BE57-D8882608CA7B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>LaserAprSlicer</RootNamespace>
+    <AssemblyName>LaserAprSlicer</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\ApplicationIcon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CommonServiceLocator, Version=2.0.6.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.2.0.6\lib\net48\CommonServiceLocator.dll</HintPath>
+    </Reference>
+    <Reference Include="ControlzEx, Version=4.0.0.0, Culture=neutral, PublicKeyToken=69f1c32f803d307e, processorArchitecture=MSIL">
+      <HintPath>..\packages\ControlzEx.4.1.0\lib\net45\ControlzEx.dll</HintPath>
+    </Reference>
+    <Reference Include="Cyotek.Drawing.BitmapFont, Version=1.0.0.0, Culture=neutral, PublicKeyToken=58daa28b0b2de221, processorArchitecture=MSIL">
+      <HintPath>..\packages\Cyotek.Drawing.BitmapFont.1.3.4\lib\net47\Cyotek.Drawing.BitmapFont.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetProjects.TreeViewEx, Version=5.0.13.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetProjects.TreeViewEx.5.0.13\lib\net40\DotNetProjects.TreeViewEx.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Fluent, Version=7.0.0.0, Culture=neutral, PublicKeyToken=3e436e32a8c5546f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fluent.Ribbon.7.0.0\lib\net45\Fluent.dll</HintPath>
+    </Reference>
+    <Reference Include="GeometRi, Version=1.3.5.13, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\GeometRi.1.3.5.13\lib\net20\GeometRi.dll</HintPath>
+    </Reference>
+    <Reference Include="GlmNet, Version=0.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\GlmNet.0.7.0\lib\net40\GlmNet.dll</HintPath>
+    </Reference>
+    <Reference Include="HelixToolkit, Version=2.11.0.0, Culture=neutral, PublicKeyToken=52aa3500039caf0d, processorArchitecture=MSIL">
+      <HintPath>..\packages\HelixToolkit.2.11.0\lib\netstandard1.1\HelixToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="HelixToolkit.Wpf, Version=2.11.0.0, Culture=neutral, PublicKeyToken=52aa3500039caf0d, processorArchitecture=MSIL">
+      <HintPath>..\packages\HelixToolkit.Wpf.2.11.0\lib\net45\HelixToolkit.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="HelixToolkit.Wpf.SharpDX, Version=2.9.0.0, Culture=neutral, PublicKeyToken=52aa3500039caf0d, processorArchitecture=MSIL">
+      <HintPath>..\packages\HelixToolkit.Wpf.SharpDX.2.9.0\lib\net45\HelixToolkit.Wpf.SharpDX.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Zip, Version=1.9.1.8, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ionic.Zip.1.9.1.8\lib\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\Microsoft.Expression.Interactions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.5.0.0\lib\net461\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAPICodePack-Core.1.1.1\lib\Microsoft.WindowsAPICodePack.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.Shell, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAPICodePack-Shell.1.1.1\lib\Microsoft.WindowsAPICodePack.Shell.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xaml.Behaviors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Xaml.Behaviors.Wpf.1.1.31\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Prism, Version=8.1.97.5141, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prism.Core.8.1.97\lib\net47\Prism.dll</HintPath>
+    </Reference>
+    <Reference Include="Prism.Container.Extensions, Version=8.0.62.18692, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prism.Container.Extensions.8.0.62\lib\net47\Prism.Container.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Prism.Unity.Wpf, Version=8.1.97.5141, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prism.Unity.8.1.97\lib\net47\Prism.Unity.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Prism.Wpf, Version=8.1.97.5141, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prism.Wpf.8.1.97\lib\net47\Prism.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Splat, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Splat.9.0.5\lib\net461\Splat.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=1.2.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.1.6.0\lib\netstandard2.0\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.4.6.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.ConfigurationManager, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Configuration.ConfigurationManager.4.6.0\lib\net461\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Data.SQLite, Version=1.0.112.1, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Core.1.0.112.2\lib\net40\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.112.1, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.112.1\lib\net40\System.Data.SQLite.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6.Migrations, Version=1.0.106.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.EF6.Migrations.1.0.106\lib\System.Data.SQLite.EF6.Migrations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.112.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.112.0\lib\net46\System.Data.SQLite.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Drawing.Primitives.4.3.0\lib\net45\System.Drawing.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.Watcher, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.Watcher.4.3.0\lib\net46\System.IO.FileSystem.Watcher.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.3\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.6.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Formatters, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.Serialization.Formatters.4.3.0\lib\net46\System.Runtime.Serialization.Formatters.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization.Primitives, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.Serialization.Primitives.4.3.0\lib\net46\System.Runtime.Serialization.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization.Xml, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.Serialization.Xml.4.3.0\lib\net46\System.Runtime.Serialization.Xml.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.AccessControl, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.AccessControl.4.6.0\lib\net461\System.Security.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Permissions, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Permissions.4.6.0\lib\net461\System.Security.Permissions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal.Windows, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Principal.Windows.4.6.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.3\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prism.Wpf.7.2.0.1367\lib\net45\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="Unity.Abstractions, Version=5.11.7.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Abstractions.5.11.7\lib\net48\Unity.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Configuration, Version=5.11.2.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Configuration.5.11.2\lib\net47\Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Container, Version=5.11.11.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Container.5.11.11\lib\net48\Unity.Container.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ServiceLocation, Version=5.11.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.ServiceLocation.5.11.1\lib\net47\Unity.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="Xceed.Wpf.AvalonDock, Version=3.6.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.6.0\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Aero, Version=3.6.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.6.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Aero.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Metro, Version=3.6.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.6.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.VS2010, Version=3.6.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.6.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.VS2010.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit, Version=3.6.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.6.0\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Extensions\CustomUnityContainerExtention.cs" />
+    <Compile Include="Extensions\Model3DExtention.cs" />
+    <Compile Include="Helpers\BindableSelectedItemBehavior.cs" />
+    <Compile Include="Helpers\DirectorySelector.cs" />
+    <Compile Include="Helpers\ActionHelper.cs" />
+    <Compile Include="Helpers\Platform.cs" />
+    <Compile Include="Helpers\Point3DExtentions.cs" />
+    <Compile Include="Helpers\PushBinding\FreezableBinding.cs" />
+    <Compile Include="Helpers\PushBinding\PushBinding.cs" />
+    <Compile Include="Helpers\PushBinding\PushBindingCollection.cs" />
+    <Compile Include="Helpers\PushBinding\PushBindingManager.cs" />
+    <Compile Include="Helpers\ShowExceptionDelegateCommand.cs" />
+    <Compile Include="Helpers\Visual3DExtention.cs" />
+    <Compile Include="Implementations\AppSettings.cs" />
+    <Compile Include="Implementations\AppSettingsContext.cs" />
+    <Compile Include="Implementations\BaseGeneratorHive.cs" />
+    <Compile Include="Implementations\DbAppSettings.cs" />
+    <Compile Include="Implementations\DbCurrentAppSettings.cs" />
+    <Compile Include="Implementations\LoggerService.cs" />
+    <Compile Include="Helpers\UnityExtention.cs" />
+    <Compile Include="Implementations\VisualScenePartManager.cs" />
+    <Compile Include="Implementations\PartTransformer.cs" />
+    <Compile Include="Implementations\SliceGeneratorHive.cs" />
+    <Compile Include="Implementations\SupportGeneratorHive.cs" />
+    <Compile Include="Implementations\User.cs" />
+    <Compile Include="Implementations\UserIdentityController.cs" />
+    <Compile Include="Implementations\UserWrapper.cs" />
+    <Compile Include="Implementations\WorkSavers\LocalResultWorkSaver.cs" />
+    <Compile Include="Migrations\202004110840486_initMigrations.cs" />
+    <Compile Include="Migrations\202004110840486_initMigrations.designer.cs">
+      <DependentUpon>202004110840486_initMigrations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005011454433_addSlicingGeneratorsSettings.cs" />
+    <Compile Include="Migrations\202005011454433_addSlicingGeneratorsSettings.designer.cs">
+      <DependentUpon>202005011454433_addSlicingGeneratorsSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010181802246_addChangesSaving.cs" />
+    <Compile Include="Migrations\202010181802246_addChangesSaving.designer.cs">
+      <DependentUpon>202010181802246_addChangesSaving.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010191211311_addUserDefinedTimeouts.cs" />
+    <Compile Include="Migrations\202010191211311_addUserDefinedTimeouts.designer.cs">
+      <DependentUpon>202010191211311_addUserDefinedTimeouts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Controllers\IdentityController.cs" />
+    <Compile Include="Model\ParametersModel.cs" />
+    <Compile Include="Controllers\PluginController.cs" />
+    <Compile Include="Model\RulerModel.cs" />
+    <Compile Include="Controllers\SettingsController.cs" />
+    <Compile Include="Model\StraightedgeModel.cs" />
+    <Compile Include="Model\UIPartInfo.cs" />
+    <Compile Include="Model\PresenterModel.cs" />
+    <Compile Include="Model\WorkTaskModel.cs" />
+    <Compile Include="ViewModels\ParametersViewModel.cs" />
+    <Compile Include="ViewModels\PartPostProcessLoader.cs" />
+    <Compile Include="ViewModels\PluginControlPanelViewModel.cs" />
+    <Compile Include="ViewModels\ShellViewModel.cs" />
+    <Compile Include="ViewModels\ShellViewModel.StatusUploader.cs" />
+    <Compile Include="ViewModels\ShellViewModel.CopyPart.cs" />
+    <Compile Include="ViewModels\ShellViewModel.LoadPart.cs" />
+    <Compile Include="ViewModels\ShellViewModel.PartManipulation.cs" />
+    <Compile Include="ViewModels\ShellViewModel.Transform.cs" />
+    <Compile Include="ViewModels\ShellViewModel.UnloadPart.cs" />
+    <Compile Include="ViewModels\ShellViewModel.WorkState.cs" />
+    <Compile Include="ViewModels\SlicingInfoLoader.cs" />
+    <Compile Include="ViewModels\SupportInfoLoader.cs" />
+    <Compile Include="Views\LoginWindow.xaml.cs">
+      <DependentUpon>LoginWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PluginControlPanel.xaml.cs">
+      <DependentUpon>PluginControlPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SlicingParameters.xaml.cs">
+      <DependentUpon>SlicingParameters.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SettingsView.xaml.cs">
+      <DependentUpon>SettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Shell.xaml.cs">
+      <DependentUpon>Shell.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\SupportParameters.xaml.cs">
+      <DependentUpon>SupportParameters.xaml</DependentUpon>
+    </Compile>
+    <Page Include="ViewStyles\ControlStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewStyles\ControlTemplates.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewStyles\ScrollStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LoginWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PluginControlPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SlicingParameters.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SettingsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Shell.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SupportParameters.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Migrations\202004110840486_initMigrations.resx">
+      <DependentUpon>202004110840486_initMigrations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005011454433_addSlicingGeneratorsSettings.resx">
+      <DependentUpon>202005011454433_addSlicingGeneratorsSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010181802246_addChangesSaving.resx">
+      <DependentUpon>202010181802246_addChangesSaving.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010191211311_addUserDefinedTimeouts.resx">
+      <DependentUpon>202010191211311_addUserDefinedTimeouts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="plugins.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Resources\DebugSlicingParameters.json" />
+    <None Include="Resources\DebugSupportParameters.json" />
+    <None Include="Resources\Licence.rtf" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\impossible-triangle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GradientSpaceSliceEngine\GradientSpaceSliceEngine.csproj">
+      <Project>{e3646578-6e11-45bf-822e-3c517b2fd558}</Project>
+      <Name>GradientSpaceSliceEngine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JsonWrapper\JsonWrapper.csproj">
+      <Project>{c5f9830f-a2e2-4152-89af-e42415cacf8a}</Project>
+      <Name>JsonWrapper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LSlicer.BL.Interaction\LSlicer.BL.Interaction.csproj">
+      <Project>{5621A559-C2D0-460F-8899-995164E101E4}</Project>
+      <Name>LSlicer.BL.Interaction</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LSlicer.BL\LSlicer.BL.csproj">
+      <Project>{7eecb833-fc05-4fc2-acca-5167b1c7b2e6}</Project>
+      <Name>LSlicer.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LSlicer.Data\LSlicer.Data.csproj">
+      <Project>{a7068d92-8cd1-4dbb-89f1-de6de96b3b1c}</Project>
+      <Name>LSlicer.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LSlicer.Helpers\LSlicer.Helpers.csproj">
+      <Project>{B5FCA39C-8754-4EBA-A537-905D03E6B872}</Project>
+      <Name>LSlicer.Helpers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LSlicer.Infrastructure\LSlicer.Infrastructure.csproj">
+      <Project>{4059FA7E-97C4-4410-A9A2-6057118BA091}</Project>
+      <Name>LSlicer.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LSlicing.Data.Interaction\LSlicer.Data.Interaction.csproj">
+      <Project>{3A2CF20F-DBF5-40F9-9AFD-684FFD032AD0}</Project>
+      <Name>LSlicer.Data.Interaction</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LSlicingLibrary\SlicingLibrary.csproj">
+      <Project>{30c52233-26a8-406a-85c6-7d3fc8a5bb34}</Project>
+      <Name>SlicingLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LSupportLibrary\SupportLibrary.csproj">
+      <Project>{c608015c-f5b9-4284-9bd1-880951db32cd}</Project>
+      <Name>SupportLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MenuModule\MenuModule.csproj">
+      <Project>{27b52691-6632-4050-987f-84be606354af}</Project>
+      <Name>MenuModule</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PluginFramework\PluginFramework.csproj">
+      <Project>{3d30a598-e1aa-464d-b7b4-b3460cdba2ff}</Project>
+      <Name>PluginFramework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PluginManagementModule\PluginManagementModule.csproj">
+      <Project>{83e59dca-ecab-4f07-b89b-d86d09b137c8}</Project>
+      <Name>PluginManagementModule</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SlicingManager\SlicingManager.csproj">
+      <Project>{CB51D897-81FE-4EDD-BF36-EA37C8D83D87}</Project>
+      <Name>SlicingManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SlicingParametersModule\ParametersModule.csproj">
+      <Project>{9b1aa5a2-055c-49d0-9c92-2f97513a7158}</Project>
+      <Name>ParametersModule</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SupportEngine\SupportEngine.csproj">
+      <Project>{7933cb20-ffc6-4e80-a6e4-d7c4102fe8b0}</Project>
+      <Name>SupportEngine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SupportManager\SupportManager.csproj">
+      <Project>{995AD4F8-64A8-4F5D-BA8F-A58D76C83092}</Project>
+      <Name>SupportManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UtilModule\UtilModule.csproj">
+      <Project>{382e7ce1-4136-4b7f-9fb6-ef9d3f00dd28}</Project>
+      <Name>UtilModule</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\cube.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\ApplicationIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\settings.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Tilda_Icons_30_system_question.ico" />
+    <Resource Include="Resources\Tilda_Icons_30_system_reload.ico" />
+    <Resource Include="Resources\Tilda_Icons_30_system_save.ico" />
+    <Resource Include="Resources\Tilda_Icons_30_system_settings.ico" />
+    <Resource Include="Resources\Tilda_Icons_30_system_sound.ico" />
+    <Resource Include="Resources\Tilda_Icons_30_system_tablet.ico" />
+    <Resource Include="Resources\Tilda_Icons_30_system_trash.ico" />
+    <Resource Include="Resources\Tilda_Icons_30_system_unlock.ico" />
+    <Resource Include="Resources\Tilda_Icons_30_system_upload.ico" />
+    <Resource Include="Resources\Tilda_Icons_30_system_warning.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Tilda_Icons_30_system_bleutooth.ico" />
+    <Resource Include="Resources\Tilda_Icons_30_system_cloud.ico" />
+    <Resource Include="Resources\Tilda_Icons_30_system_desktop.ico" />
+    <Resource Include="Resources\Tilda_Icons_30_system_download.ico" />
+    <Resource Include="Resources\Tilda_Icons_30_system_folder.ico" />
+    <Resource Include="Resources\Tilda_Icons_30_system_link.ico" />
+    <Resource Include="Resources\Tilda_Icons_30_system_lock.ico" />
+    <Resource Include="Resources\Tilda_Icons_30_system_nosound.ico" />
+    <Resource Include="Resources\Tilda_Icons_30_system_pause.ico" />
+    <Resource Include="Resources\Tilda_Icons_30_system_play.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Tilda_Icons_30_system_play_prev.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\align-1.ico" />
+    <Resource Include="Resources\align.ico" />
+    <Resource Include="Resources\anchor.ico" />
+    <Resource Include="Resources\antenna.ico" />
+    <Resource Include="Resources\background-1.ico" />
+    <Resource Include="Resources\background-2.ico" />
+    <Resource Include="Resources\background.ico" />
+    <Resource Include="Resources\badge.ico" />
+    <Resource Include="Resources\bar-chart.ico" />
+    <Resource Include="Resources\bicycle.ico" />
+    <Resource Include="Resources\bookmark.ico" />
+    <Resource Include="Resources\bounding-box.ico" />
+    <Resource Include="Resources\brush.ico" />
+    <Resource Include="Resources\bucket-1.ico" />
+    <Resource Include="Resources\bucket.ico" />
+    <Resource Include="Resources\center-align.ico" />
+    <Resource Include="Resources\center-alignment-1.ico" />
+    <Resource Include="Resources\center-alignment.ico" />
+    <Resource Include="Resources\change-1.ico" />
+    <Resource Include="Resources\change.ico" />
+    <Resource Include="Resources\checked-1.ico" />
+    <Resource Include="Resources\checked.ico" />
+    <Resource Include="Resources\circle.ico" />
+    <Resource Include="Resources\circular.ico" />
+    <Resource Include="Resources\column.ico" />
+    <Resource Include="Resources\cone.ico" />
+    <Resource Include="Resources\constraint.ico" />
+    <Resource Include="Resources\coordinates.ico" />
+    <Resource Include="Resources\crop-1.ico" />
+    <Resource Include="Resources\crop.ico" />
+    <Resource Include="Resources\cube-1.ico" />
+    <Resource Include="Resources\cube-1_1.ico" />
+    <Resource Include="Resources\cube-2.ico" />
+    <Resource Include="Resources\cube-3.ico" />
+    <Resource Include="Resources\cube-4.ico" />
+    <Resource Include="Resources\cube-5.ico" />
+    <Resource Include="Resources\cube_1.ico" />
+    <Resource Include="Resources\cursor-1.ico" />
+    <Resource Include="Resources\cursor-1_1.ico" />
+    <Resource Include="Resources\cursor-2.ico" />
+    <Resource Include="Resources\cursor.ico" />
+    <Resource Include="Resources\cursor_1.ico" />
+    <Resource Include="Resources\cylinder.ico" />
+    <Resource Include="Resources\direction.ico" />
+    <Resource Include="Resources\distort-1.ico" />
+    <Resource Include="Resources\distort.ico" />
+    <Resource Include="Resources\divide.ico" />
+    <Resource Include="Resources\dollar-symbol.ico" />
+    <Resource Include="Resources\download-1.ico" />
+    <Resource Include="Resources\download.ico" />
+    <Resource Include="Resources\edit-1.ico" />
+    <Resource Include="Resources\edit-2.ico" />
+    <Resource Include="Resources\edit-3.ico" />
+    <Resource Include="Resources\edit-4.ico" />
+    <Resource Include="Resources\edit-corner.ico" />
+    <Resource Include="Resources\edit.ico" />
+    <Resource Include="Resources\exclude.ico" />
+    <Resource Include="Resources\eye-1.ico" />
+    <Resource Include="Resources\eye.ico" />
+    <Resource Include="Resources\eyedropper-1.ico" />
+    <Resource Include="Resources\eyedropper.ico" />
+    <Resource Include="Resources\file.ico" />
+    <Resource Include="Resources\flatten.ico" />
+    <Resource Include="Resources\flip-1.ico" />
+    <Resource Include="Resources\flip.ico" />
+    <Resource Include="Resources\fold.ico" />
+    <Resource Include="Resources\folder.ico" />
+    <Resource Include="Resources\foreground.ico" />
+    <Resource Include="Resources\full-screen-1.ico" />
+    <Resource Include="Resources\full-screen.ico" />
+    <Resource Include="Resources\grids.ico" />
+    <Resource Include="Resources\group.ico" />
+    <Resource Include="Resources\head.ico" />
+    <Resource Include="Resources\intersection.ico" />
+    <Resource Include="Resources\joint.ico" />
+    <Resource Include="Resources\layers.ico" />
+    <Resource Include="Resources\left-alignment-1.ico" />
+    <Resource Include="Resources\left-alignment-2.ico" />
+    <Resource Include="Resources\left-alignment.ico" />
+    <Resource Include="Resources\like.ico" />
+    <Resource Include="Resources\merge.ico" />
+    <Resource Include="Resources\mirror-horizontally-1.ico" />
+    <Resource Include="Resources\mirror-horizontally.ico" />
+    <Resource Include="Resources\monitor-1.ico" />
+    <Resource Include="Resources\monitor-2.ico" />
+    <Resource Include="Resources\monitor.ico" />
+    <Resource Include="Resources\networking-1.ico" />
+    <Resource Include="Resources\networking.ico" />
+    <Resource Include="Resources\next-1.ico" />
+    <Resource Include="Resources\next-2.ico" />
+    <Resource Include="Resources\next.ico" />
+    <Resource Include="Resources\outline.ico" />
+    <Resource Include="Resources\oval-1.ico" />
+    <Resource Include="Resources\oval-2.ico" />
+    <Resource Include="Resources\oval.ico" />
+    <Resource Include="Resources\paint-palette.ico" />
+    <Resource Include="Resources\pen-1.ico" />
+    <Resource Include="Resources\pen.ico" />
+    <Resource Include="Resources\pen_1.ico" />
+    <Resource Include="Resources\perspective.ico" />
+    <Resource Include="Resources\phone-call.ico" />
+    <Resource Include="Resources\photo-camera.ico" />
+    <Resource Include="Resources\pie-chart-1.ico" />
+    <Resource Include="Resources\pie-chart.ico" />
+    <Resource Include="Resources\piggy-bank.ico" />
+    <Resource Include="Resources\placeholder.ico" />
+    <Resource Include="Resources\polygon.ico" />
+    <Resource Include="Resources\previous.ico" />
+    <Resource Include="Resources\right-alignment-1.ico" />
+    <Resource Include="Resources\right-alignment-2.ico" />
+    <Resource Include="Resources\right-alignment.ico" />
+    <Resource Include="Resources\rotate-1.ico" />
+    <Resource Include="Resources\rotate.ico" />
+    <Resource Include="Resources\row.ico" />
+    <Resource Include="Resources\ruler-1.ico" />
+    <Resource Include="Resources\ruler.ico" />
+    <Resource Include="Resources\satellite.ico" />
+    <Resource Include="Resources\scale.ico" />
+    <Resource Include="Resources\scheme-1.ico" />
+    <Resource Include="Resources\scheme-2.ico" />
+    <Resource Include="Resources\scheme.ico" />
+    <Resource Include="Resources\screen.ico" />
+    <Resource Include="Resources\select.ico" />
+    <Resource Include="Resources\sent-1.ico" />
+    <Resource Include="Resources\sent.ico" />
+    <Resource Include="Resources\settings-1.ico" />
+    <Resource Include="Resources\settings-2.ico" />
+    <Resource Include="Resources\settings-3.ico" />
+    <Resource Include="Resources\shapes-1.ico" />
+    <Resource Include="Resources\shapes.ico" />
+    <Resource Include="Resources\share.ico" />
+    <Resource Include="Resources\shield.ico" />
+    <Resource Include="Resources\speech-bubble.ico" />
+    <Resource Include="Resources\spiral.ico" />
+    <Resource Include="Resources\spray.ico" />
+    <Resource Include="Resources\square-1.ico" />
+    <Resource Include="Resources\square-10.ico" />
+    <Resource Include="Resources\square-11.ico" />
+    <Resource Include="Resources\square-12.ico" />
+    <Resource Include="Resources\square-13.ico" />
+    <Resource Include="Resources\square-14.ico" />
+    <Resource Include="Resources\square-15.ico" />
+    <Resource Include="Resources\square-16.ico" />
+    <Resource Include="Resources\square-17.ico" />
+    <Resource Include="Resources\square-18.ico" />
+    <Resource Include="Resources\square-19.ico" />
+    <Resource Include="Resources\square-2.ico" />
+    <Resource Include="Resources\square-20.ico" />
+    <Resource Include="Resources\square-21.ico" />
+    <Resource Include="Resources\square-22.ico" />
+    <Resource Include="Resources\square-23.ico" />
+    <Resource Include="Resources\square-24.ico" />
+    <Resource Include="Resources\square-25.ico" />
+    <Resource Include="Resources\square-26.ico" />
+    <Resource Include="Resources\square-27.ico" />
+    <Resource Include="Resources\square-3.ico" />
+    <Resource Include="Resources\square-4.ico" />
+    <Resource Include="Resources\square-5.ico" />
+    <Resource Include="Resources\square-6.ico" />
+    <Resource Include="Resources\square-7.ico" />
+    <Resource Include="Resources\square-8.ico" />
+    <Resource Include="Resources\square-9.ico" />
+    <Resource Include="Resources\square.ico" />
+    <Resource Include="Resources\strategy.ico" />
+    <Resource Include="Resources\telephone-1.ico" />
+    <Resource Include="Resources\telephone.ico" />
+    <Resource Include="Resources\tile-1.ico" />
+    <Resource Include="Resources\tile.ico" />
+    <Resource Include="Resources\transform.ico" />
+    <Resource Include="Resources\triangle-1.ico" />
+    <Resource Include="Resources\triangle.ico" />
+    <Resource Include="Resources\trim.ico" />
+    <Resource Include="Resources\unconstrained.ico" />
+    <Resource Include="Resources\ungroup.ico" />
+    <Resource Include="Resources\unite.ico" />
+    <Resource Include="Resources\up-arrow-1.ico" />
+    <Resource Include="Resources\up-arrow.ico" />
+    <Resource Include="Resources\upload-1.ico" />
+    <Resource Include="Resources\upload.ico" />
+    <Resource Include="Resources\user-1.ico" />
+    <Resource Include="Resources\user-2.ico" />
+    <Resource Include="Resources\user-3.ico" />
+    <Resource Include="Resources\user.ico" />
+    <Resource Include="Resources\vector-1.ico" />
+    <Resource Include="Resources\vector-2.ico" />
+    <Resource Include="Resources\vector-3.ico" />
+    <Resource Include="Resources\vector.ico" />
+    <Resource Include="Resources\vertical-alignment-1.ico" />
+    <Resource Include="Resources\vertical-alignment-2.ico" />
+    <Resource Include="Resources\vertical-alignment-3.ico" />
+    <Resource Include="Resources\vertical-alignment-4.ico" />
+    <Resource Include="Resources\vertical-alignment-5.ico" />
+    <Resource Include="Resources\vertical-alignment-6.ico" />
+    <Resource Include="Resources\vertical-alignment.ico" />
+    <Resource Include="Resources\volume-control.ico" />
+    <Resource Include="Resources\watch.ico" />
+    <Resource Include="Resources\wrench-1.ico" />
+    <Resource Include="Resources\wrench.ico" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>robocopy "%25CD%25\..\..\..\Resources" "Resources"
+</PostBuildEvent>
+  </PropertyGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\System.Data.SQLite.Core.1.0.112.2\build\net40\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Data.SQLite.Core.1.0.112.2\build\net40\System.Data.SQLite.Core.targets'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\System.Data.SQLite.Core.1.0.112.2\build\net40\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.112.2\build\net40\System.Data.SQLite.Core.targets')" />
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+</Project>

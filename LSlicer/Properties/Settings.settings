@@ -1,0 +1,51 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="LSlicer.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="SlicingEnginePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">..\\..\\..\\..\\TestEngineStub\\bin\\Debug\\TestEngineStub.exe</Value>
+    </Setting>
+    <Setting Name="SlicingParametersRepoPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">{APPDATA}\LSlicer\Resources</Value>
+    </Setting>
+    <Setting Name="WorkingDirectory" Type="System.String" Scope="User">
+      <Value Profile="(Default)">{APPDATA}\LSlicer\Temp\</Value>
+    </Setting>
+    <Setting Name="DefaultSlicingParameters" Type="System.String" Scope="User">
+      <Value Profile="(Default)">..\\..\\..\\..\\TestEngineStub\\slicing_d_parameters.json</Value>
+    </Setting>
+    <Setting Name="SlicingResultDirectory" Type="System.String" Scope="User">
+      <Value Profile="(Default)">{APPDATA}\LSlicer\Jobs\</Value>
+    </Setting>
+    <Setting Name="SupportEnginePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">..\\..\\..\\..\\SupportEngine\\bin\\x64\\Debug\\SupportEngine.exe</Value>
+    </Setting>
+    <Setting Name="DefaultSupportParameters" Type="System.String" Scope="User">
+      <Value Profile="(Default)">..\\..\\..\\..\\TestEngineStub\\support_d_parameters.json</Value>
+    </Setting>
+    <Setting Name="SupportParametersRepoPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">{APPDATA}\LSlicer\Resources</Value>
+    </Setting>
+    <Setting Name="SupportEngineList" Type="System.String" Scope="User">
+      <Value Profile="(Default)">CustomSupportGenerator;Cura;</Value>
+    </Setting>
+    <Setting Name="SelectedSupportEngine" Type="System.String" Scope="User">
+      <Value Profile="(Default)">CustomSupportGenerator</Value>
+    </Setting>
+    <Setting Name="SliceEngineList" Type="System.String" Scope="User">
+      <Value Profile="(Default)">CustomSliceGenerator;Cura;</Value>
+    </Setting>
+    <Setting Name="SelectedSliceEngine" Type="System.String" Scope="User">
+      <Value Profile="(Default)">CustomSliceGenerator</Value>
+    </Setting>
+    <Setting Name="CurrentChangesPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">{APPDATA}\LSlicer\Temp\current_changes_file</Value>
+    </Setting>
+    <Setting Name="AutoSaveInterval" Type="System.TimeSpan" Scope="User">
+      <Value Profile="(Default)">00:00:20</Value>
+    </Setting>
+    <Setting Name="WaitingUserActionTimeout" Type="System.TimeSpan" Scope="User">
+      <Value Profile="(Default)">00:03:00</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

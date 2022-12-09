@@ -1,0 +1,28 @@
+﻿<Window x:Class="LSlicer.Views.SlicingParameters"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:interactivity="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        xmlns:di="http://schemas.microsoft.com/expression/2010/interactions"
+        xmlns:local="clr-namespace:LSlicer.Views"
+        xmlns:prism="http://prismlibrary.com/"
+        prism:ViewModelLocator.AutoWireViewModel="True"
+        mc:Ignorable="d"
+        Title="Параметры" Height="450" Width="800"
+        Closing="Window_Closing">
+    <StackPanel>
+        <!--StackPanel Orientation="Horizontal">
+            <Button Command="{Binding Path=SetSlicingVis}" Visibility="{Binding SupportVisibility}">Нарезка</Button>
+            <Button Command="{Binding Path=SetSupportVis}" Visibility="{Binding SlicingVisibility}">Поддержки</Button>
+        </-->
+        <Grid>
+            <!--ContentControl Visibility="{Binding SupportVisibility}" 
+                            prism:RegionManager.RegionName="SupportParametersRegion"
+                                       Margin="0,0,0,0"/-->
+            <ContentControl Visibility="{Binding SlicingVisibility}" 
+                            prism:RegionManager.RegionName="ParametersRegion"
+                                       Margin="0,0,0,0"/>
+        </Grid>
+    </StackPanel>
+</Window>

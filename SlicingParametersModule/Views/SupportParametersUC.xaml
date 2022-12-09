@@ -1,0 +1,202 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:prism="http://prismlibrary.com/"   
+             xmlns:System="clr-namespace:System;assembly=mscorlib"
+             xmlns:model="clr-namespace:LSlicing.Data.Interaction.Contracts;assembly=LSlicing.Data.Interaction"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="ParametersModule.Views.SupportParametersUC"             
+             prism:ViewModelLocator.AutoWireViewModel="True" d:DesignWidth="275">
+    <UserControl.Resources>
+        <ObjectDataProvider 
+            x:Key="supportTypeFromEnum"
+            MethodName="GetValues" 
+            ObjectType="{x:Type System:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type 
+                    TypeName="model:SupportType"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </UserControl.Resources>
+    <StackPanel Background="Gray">
+        <StackPanel Orientation="Horizontal">
+            <Button Height="25" Command="{Binding SetParametersCommand}" Content="Применить параметры"/>
+            <Button Height="25" Command="{Binding AddCommand}" Content="Добавить параметры"/>
+            <Button Height="25" Command="{Binding DeleteCommand}" Content="Удалить параметры"/>
+            <Button Height="25" Command="{Binding SaveCommand}" Content="Сохранить параметры"/>
+        </StackPanel>
+        <Rectangle Height="10"/>
+        <DataGrid
+            AutoGenerateColumns="False"
+            ItemsSource="{Binding Parameters, Mode=TwoWay, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}"
+            SelectedItem="{Binding SelectedParameters, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+            <DataGrid.Columns>
+
+                <DataGridTextColumn Binding="{Binding Name}">
+                <DataGridTextColumn.Header>
+                    <TextBlock TextAlignment="Center">
+                            <Run Text="Название"/><LineBreak/><Run Text="параметров"/>
+                    </TextBlock>
+                </DataGridTextColumn.Header>
+            </DataGridTextColumn>
+                <!--DataGridComboBoxColumn SelectedItemBinding="{Binding Path=Type}" 
+                                  ItemsSource="{Binding Source={StaticResource TypeFromEnum}}" >
+                    <DataGridComboBoxColumn.Header>
+                        <TextBlock TextAlignment="Center">
+                            <Run Text="Порошок"/>
+                        </TextBlock>
+                    </DataGridComboBoxColumn.Header>
+                </-->
+                <DataGridComboBoxColumn SelectedItemBinding="{Binding Path=Type}" 
+                                  ItemsSource="{Binding Source={StaticResource supportTypeFromEnum}}" >
+                    <DataGridComboBoxColumn.Header>
+                        <TextBlock TextAlignment="Center">
+                            <Run Text="Тип"/>
+                        </TextBlock>
+                    </DataGridComboBoxColumn.Header>
+                </DataGridComboBoxColumn>
+                <DataGridTextColumn Binding="{Binding XGridCellSize}">
+                    <DataGridTextColumn.Header>
+                        <TextBlock TextAlignment="Center" ToolTip="мм">
+                            <Run Text="Шаг"/><LineBreak/><Run Text="по Х"/>
+                        </TextBlock>
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding YGridCellSize}">
+                    <DataGridTextColumn.Header>
+                        <TextBlock TextAlignment="Center" ToolTip="мм">
+                            <Run Text="Шаг"/><LineBreak/><Run Text="по Y"/>
+                        </TextBlock>
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding XElementWidth}">
+                    <DataGridTextColumn.Header>
+                        <TextBlock TextAlignment="Center" ToolTip="мм">
+                            <Run Text="Ширина"/><LineBreak/><Run Text="по Х"/>
+                        </TextBlock>
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding YElementWidth}">
+                    <DataGridTextColumn.Header>
+                        <TextBlock TextAlignment="Center" ToolTip="мм">
+                            <Run Text="Ширина"/><LineBreak/><Run Text="по Y"/>
+                        </TextBlock>
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
+                <DataGridCheckBoxColumn Binding="{Binding EndToEndSupport}">
+                    <DataGridCheckBoxColumn.Header>
+                        <TextBlock TextAlignment="Center" >
+                            <Run Text="Внутренние"/><LineBreak/><Run Text="поддержки"/>
+                        </TextBlock>
+                    </DataGridCheckBoxColumn.Header>
+                </DataGridCheckBoxColumn>
+                
+                <DataGridCheckBoxColumn Binding="{Binding IsSupportsForPartBody}">
+                    <DataGridCheckBoxColumn.Header>
+                        <TextBlock TextAlignment="Center" >
+                            <Run Text="Поддержки на"/><LineBreak/><Run Text="плоскостях"/>
+                        </TextBlock>
+                    </DataGridCheckBoxColumn.Header>
+                </DataGridCheckBoxColumn>
+                <DataGridCheckBoxColumn Binding="{Binding UseZoneofInterests}">
+                    <DataGridCheckBoxColumn.Header>
+                        <TextBlock TextAlignment="Center" >
+                            <Run Text="Зона интереса"/><LineBreak/><Run Text="(ЗИ)"/>
+                        </TextBlock>
+                    </DataGridCheckBoxColumn.Header>
+                </DataGridCheckBoxColumn>
+                <DataGridTextColumn Binding="{Binding StartZonePointX}">
+                    <DataGridTextColumn.Header>
+                        <TextBlock TextAlignment="Center" ToolTip="мм">
+                            <Run Text="Координата ЗИ"/><LineBreak/><Run Text="Х"/>
+                        </TextBlock>
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding StartZonePointY}">
+                    <DataGridTextColumn.Header>
+                        <TextBlock TextAlignment="Center" ToolTip="мм">
+                            <Run Text="Координата ЗИ"/><LineBreak/><Run Text="Y"/>
+                        </TextBlock>
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding StartZonePointZ}">
+                    <DataGridTextColumn.Header>
+                        <TextBlock TextAlignment="Center" ToolTip="мм">
+                            <Run Text="Координата ЗИ"/><LineBreak/><Run Text="Z"/>
+                        </TextBlock>
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding LenghtZoneX}">
+                    <DataGridTextColumn.Header>
+                        <TextBlock TextAlignment="Center" ToolTip="мм">
+                            <Run Text="Ширина ЗИ"/><LineBreak/><Run Text="Х"/>
+                        </TextBlock>
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding LenghtZoneY}">
+                    <DataGridTextColumn.Header>
+                        <TextBlock TextAlignment="Center" ToolTip="мм">
+                            <Run Text="Длинна ЗИ"/><LineBreak/><Run Text="Y"/>
+                        </TextBlock>
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding LenghtZoneX}">
+                    <DataGridTextColumn.Header>
+                        <TextBlock TextAlignment="Center" ToolTip="мм">
+                            <Run Text="Высота ЗИ"/><LineBreak/><Run Text="Z"/>
+                        </TextBlock>
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding PartIntersectionDeep}">
+                    <DataGridTextColumn.Header>
+                        <TextBlock TextAlignment="Center" ToolTip="мм">
+                            <Run Text="Углубление"/><LineBreak/><Run Text="в деталь"/>
+                        </TextBlock>
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding ZGridCellSize}">
+                    <DataGridTextColumn.Header>
+                        <TextBlock TextAlignment="Center" ToolTip="мм">
+                            <Run Text="Высота"/><LineBreak/><Run Text="ячейки"/>
+                        </TextBlock>
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding HeadLength}">
+                    <DataGridTextColumn.Header>
+                        <TextBlock TextAlignment="Center" ToolTip="мм">
+                            <Run Text="Высота головки"/><LineBreak/><Run Text="поддержки"/>
+                        </TextBlock>
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Angle}">
+                    <DataGridTextColumn.Header>
+                        <TextBlock TextAlignment="Center" ToolTip="градусы">
+                            <Run Text="Угол отсечения"/><LineBreak/><Run Text="поверхностей"/>
+                        </TextBlock>
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding MinLength}">
+                    <DataGridTextColumn.Header>
+                        <TextBlock TextAlignment="Center" ToolTip="мм">
+                            <Run Text="Мин. высота"/><LineBreak/><Run Text="поддержек"/>
+                        </TextBlock>
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding WeightFunction}">
+                    <DataGridTextColumn.Header>
+                        <TextBlock TextAlignment="Center">
+                            <Run Text="Значение"/><LineBreak/><Run Text="весовой функции"/>
+                        </TextBlock>
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
+                <DataGridCheckBoxColumn Binding="{Binding IsSupportsForPartContour}">
+                    <DataGridCheckBoxColumn.Header>
+                        <TextBlock TextAlignment="Center">
+                            <Run Text="Поддержки по"/><LineBreak/><Run Text="контуру"/>
+                        </TextBlock>
+                    </DataGridCheckBoxColumn.Header>
+                </DataGridCheckBoxColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Rectangle Height="10"/>
+    </StackPanel>
+</UserControl>

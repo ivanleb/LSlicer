@@ -1,0 +1,150 @@
+﻿<Page x:Class="MenuModule.Views.TranslatePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MenuModule.Views"
+      xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+      xmlns:prism="http://prismlibrary.com/"
+      prism:ViewModelLocator.AutoWireViewModel="True"
+      mc:Ignorable="d" 
+      d:DesignHeight="235"
+      Title="PositionPage" Width="150"
+      Background="Transparent">
+    <Page.Resources>
+        <Style x:Key="CoordinateDoubleUpDownStyle"
+               TargetType="{x:Type xctk:DoubleUpDown}"
+               BasedOn="{StaticResource {x:Type xctk:DoubleUpDown}}">
+            <Setter 
+                Property="Width"
+                Value="70"/>
+        </Style>
+        <Style x:Key="CoordinateDoubleTextblox"
+               TargetType="{x:Type TextBox}"
+               BasedOn="{StaticResource {x:Type TextBox}}">
+            <Setter 
+                Property="Width"
+                Value="80"/>
+        </Style>
+        <Style x:Key="CoordinateStackPanelStyle"
+               TargetType="{x:Type StackPanel}">
+            <Setter 
+                Property="Height"
+                Value="35"/>
+            <Setter 
+                Property="Width"
+                Value="220"/>
+            <Setter 
+                Property="Margin"
+                Value="0,5,0,0"/>
+        </Style>
+        <Style x:Key="PositionPageButtonStyle"
+               TargetType="{x:Type Button}"
+               BasedOn="{StaticResource {x:Type Button}}">
+            <Setter 
+                Property="Width"
+                Value="80"/>
+            <Setter 
+                Property="Height"
+                Value="35"/>
+            <Setter 
+                Property="Margin"
+                Value="10,10"/>
+        </Style>
+        <Style x:Key="PositionLabelStyle"
+               TargetType="{x:Type Label}"
+               BasedOn="{StaticResource {x:Type Label}}">
+            <Setter 
+                Property="Width"
+                Value="25"/>
+            <Setter 
+                Property="Height"
+                Value="35"/>
+            <Setter 
+                Property="Margin"
+                Value="10,0,0,0"/>
+            <Setter 
+                Property="Foreground"
+                Value="DarkGray" />
+        </Style>
+    </Page.Resources>
+
+    <Grid Background="Transparent">
+        <StackPanel Background="Transparent">
+            <GroupBox BorderBrush="White"
+                      BorderThickness="1"
+                      Background="Transparent"
+                      Foreground="DarkGray">
+                <GroupBox.Header >
+                    Перемещение
+                </GroupBox.Header>
+                <StackPanel Background="Transparent">
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel Background="Transparent">
+                            <StackPanel Orientation="Horizontal" Style="{StaticResource CoordinateStackPanelStyle}">
+                                <Label Margin="45,0,0,0" Foreground="DarkGray">Отн.</Label>
+                                <!--Label Margin="45,0,0,0" Foreground="DarkGray">Абс.</-->
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Style="{StaticResource CoordinateStackPanelStyle}">
+                                <Label Style="{StaticResource PositionLabelStyle}">X</Label>
+                                <xctk:DoubleUpDown Increment=".5" 
+                                                   FormatString="F1"
+                                                   CultureInfo=""
+                                           Text="{Binding RelativeX}" 
+                                           Style="{StaticResource CoordinateDoubleUpDownStyle}"
+                                           Keyboard.KeyDown="DoubleUpDown_KeyDown"/>
+                                
+                                <!--xctk:DoubleUpDown Increment=".5" 
+                                                   FormatString="F1"
+                                                   CultureInfo=""
+                                           Text="{Binding AbsoluteX}" 
+                                           Style="{StaticResource CoordinateDoubleUpDownStyle}"
+                                           Keyboard.KeyDown="DoubleUpDown_KeyDown"/-->
+                                <Label Content="{Binding TranslateUnits}" Foreground="DarkGray"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Style="{StaticResource CoordinateStackPanelStyle}">
+                                <Label Style="{StaticResource PositionLabelStyle}">Y</Label>
+                                <xctk:DoubleUpDown Increment=".5" 
+                                                   FormatString="F1"
+                                                   CultureInfo=""
+                                           Text="{Binding RelativeY}" 
+                                           Style="{StaticResource CoordinateDoubleUpDownStyle}"
+                                           Keyboard.KeyDown="DoubleUpDown_KeyDown"/>
+                                <!--xctk:DoubleUpDown Increment=".5" 
+                                                   FormatString="F1"
+                                                   CultureInfo=""
+                                           Text="{Binding AbsoluteY}" 
+                                           Style="{StaticResource CoordinateDoubleUpDownStyle}"
+                                           Keyboard.KeyDown="DoubleUpDown_KeyDown"/-->
+                                <Label Content="{Binding TranslateUnits}" Foreground="DarkGray"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Style="{StaticResource CoordinateStackPanelStyle}">
+                                <Label Style="{StaticResource PositionLabelStyle}">Z</Label>
+                                <xctk:DoubleUpDown Increment=".5" 
+                                                   FormatString="F1"
+                                                   CultureInfo=""
+                                           Text="{Binding RelativeZ}" 
+                                           Style="{StaticResource CoordinateDoubleUpDownStyle}"
+                                           Keyboard.KeyDown="DoubleUpDown_KeyDown"/>
+                                <!--xctk:DoubleUpDown Increment=".5" 
+                                                   FormatString="F1"
+                                                   CultureInfo=""
+                                           Text="{Binding AbsoluteZ}" 
+                                           Style="{StaticResource CoordinateDoubleUpDownStyle}"
+                                           Keyboard.KeyDown="DoubleUpDown_KeyDown"/-->
+                                <Label Content="{Binding TranslateUnits}" Foreground="DarkGray"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                    <Line Margin="10,5"/>
+                    <StackPanel Orientation="Horizontal" 
+                        FlowDirection="RightToLeft">
+                        <!--<Button Style="{StaticResource PositionPageButtonStyle}">Cancel</Button>-->
+                        <Button Style="{StaticResource PositionPageButtonStyle}" 
+                        Command="{Binding ApplyTranslateCommand}">Применить</Button>
+                    </StackPanel>
+                </StackPanel>
+            </GroupBox>
+        </StackPanel>
+    </Grid>
+</Page>

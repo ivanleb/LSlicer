@@ -1,0 +1,4 @@
+﻿..\\..\\..\\..\\TestEngineStub\\bin\\Debug\\TestEngineStub.exe=SliceEngine.exe
+..\\..\\..\\..\\TestEngineStub\\slicing_d_parameters.json={APPDATA}\\LSlicer\\Resources\\Slicing_parameters.json
+..\\..\\..\\..\\SupportEngine\\bin\\x64\\Debug\\SupportEngine.exe=SupportEngine.exe
+..\\..\\..\\..\\TestEngineStub\\support_d_parameters.json={APPDATA}\\LSlicer\\Resources\\Support_parameters.json

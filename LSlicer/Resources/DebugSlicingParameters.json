@@ -1,0 +1,26 @@
+[
+  {
+    "Id": 0,
+    "Thickness": 0.03
+  },
+  {
+    "Id": 1,
+    "Thickness": 0.02
+  },
+  {
+    "Id": 2,
+    "Thickness": 0.01
+  },
+  {
+    "Id": 3,
+    "Thickness": 0.02
+  },
+  {
+    "Id": 4,
+    "Thickness": 0.01
+  },
+  {
+    "Id": 5,
+    "Thickness": 0.05
+  }
+]

@@ -1,0 +1,646 @@
+﻿<Window x:Class="LSlicer.Views.Shell"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:interactivity="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        xmlns:di="http://schemas.microsoft.com/expression/2010/interactions"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LSlicer.Views"
+        xmlns:inf="clr-namespace:LSlicer.Infrastructure"
+        xmlns:dataTypes="clr-namespace:LSlicer.Model"
+        xmlns:helpers="clr-namespace:LSlicer.Helpers"
+        xmlns:prism="http://prismlibrary.com/"
+        prism:ViewModelLocator.AutoWireViewModel="True"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:xcad="http://schemas.xceed.com/wpf/xaml/avalondock"
+        xmlns:Fluent="urn:fluent-ribbon"
+        xmlns:helix="clr-namespace:HelixToolkit.Wpf;assembly=HelixToolkit.Wpf"
+        xmlns:tvx="clr-namespace:System.Windows.Controls;assembly=DotNetProjects.TreeViewEx"
+        mc:Ignorable="d"
+        Title="LASlicer" Height="450" Width="800"
+        WindowState="Maximized"
+        AllowDrop="True">
+    <Window.Resources>
+        <Storyboard 
+            x:Key="ShowRightMenu">
+            <ThicknessAnimation 
+                Storyboard.TargetProperty="Margin" 
+                From="0,0,0,0" 
+                To="0,0,-310,0" 
+                DecelerationRatio=".1" 
+                Duration="100:0:59" />
+        </Storyboard>
+        <Storyboard 
+            x:Key="HideRightMenu">
+            <ThicknessAnimation 
+                Storyboard.TargetProperty="Margin" 
+                From="0,0,-310,0" 
+                To="0,0,0,0" 
+                DecelerationRatio=".1" 
+                Duration="100:0:59" />
+        </Storyboard>
+        <helix:LinearConverter x:Key="Multiplier" M="0.5"/>
+        <SolidColorBrush x:Key="InfoCard.Background">#999999</SolidColorBrush>
+    </Window.Resources>
+
+    <Grid AllowDrop="True">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Fluent:Ribbon Grid.Row="0">
+            <Fluent:Ribbon.Resources>
+                <!--<SolidColorBrush x:Key="Fluent.Ribbon.Brushes.RibbonTabControl.Background">Green</SolidColorBrush>-->
+                <!--<SolidColorBrush x:Key="Fluent.Ribbon.Brushes.RibbonTabControl.TabsGrid.Background">#575658</SolidColorBrush>-->
+                <SolidColorBrush x:Key="Fluent.Ribbon.Brushes.RibbonTabControl.Content.Background">#656565</SolidColorBrush>
+                <!--<SolidColorBrush x:Key="Fluent.Ribbon.Brushes.RibbonWindow.TitleBackground">Green</SolidColorBrush>-->
+            </Fluent:Ribbon.Resources>
+            <!--Backstage-->
+            <Fluent:Ribbon.Menu>
+                <Fluent:Backstage Header="Открыть">
+                    <Fluent:BackstageTabControl  Background="#656565" >
+                        <Fluent:BackstageTabItem Header="Открыть">
+                            <Grid>
+                                <Fluent:Button 
+                                        HorizontalAlignment="Left" 
+                                        VerticalAlignment="Top" 
+                                        Margin="10,10,0,0" 
+                                        Height="100" 
+                                        Width="100" 
+                                        Header="Открыть STL файл"
+                                        Command="{Binding OpenFileCommand}">
+                                    <Fluent:Button.Icon>
+                                        pack://application:,,,/LSlicer;component/Resources/Tilda_Icons_30_system_folder.ico
+                                    </Fluent:Button.Icon>
+                                    <Fluent:Button.LargeIcon>
+                                        pack://application:,,,/LSlicer;component/Resources/Tilda_Icons_30_system_folder.ico
+                                    </Fluent:Button.LargeIcon>
+                                </Fluent:Button> 
+
+                                <Fluent:Button 
+                                        HorizontalAlignment="Left" 
+                                        VerticalAlignment="Top" 
+                                        Margin="100,10,0,0" 
+                                        Height="100" 
+                                        Width="100" 
+                                        Header="Открыть файл сохранения"
+                                        Command="{Binding OpenCurrentChangesCommand}">
+                                    <Fluent:Button.Icon>
+                                        pack://application:,,,/LSlicer;component/Resources/Tilda_Icons_30_system_folder.ico
+                                    </Fluent:Button.Icon>
+                                    <Fluent:Button.LargeIcon>
+                                        pack://application:,,,/LSlicer;component/Resources/Tilda_Icons_30_system_folder.ico
+                                    </Fluent:Button.LargeIcon>
+                                </Fluent:Button>
+                            </Grid>
+                        </Fluent:BackstageTabItem>
+                        <Fluent:Button Header="Сохранить" Command="{Binding SaveCurrentChangesCommand}"/>
+                        <Fluent:BackstageTabItem Header="Сохранить в">
+                            <Grid>
+                                <StackPanel>
+                                    <Rectangle Height="30"/>
+                                    <Fluent:TextBox 
+                                        Height="25"
+                                        Width="300"  
+                                        FontSize ="16" 
+                                        HorizontalAlignment="Left"
+                                        Header="Result name:"
+                                        Text="{Binding Path=ResultName, Mode= TwoWay, UpdateSourceTrigger=PropertyChanged}"></Fluent:TextBox>
+
+                                    <Rectangle Height="10"/>
+                                    <Fluent:Button 
+                                        HorizontalAlignment="Left" 
+                                        VerticalAlignment="Top" 
+                                        Margin="10,10,0,0" 
+                                        Command="{Binding SaveResultCommand}"
+                                        Header="Сохранить результат">
+                                        <Fluent:Button.Icon>
+                                            pack://application:,,,/LSlicer;component/Resources/Tilda_Icons_30_system_save.ico
+                                        </Fluent:Button.Icon>
+                                        <Fluent:Button.LargeIcon>
+                                            pack://application:,,,/LSlicer;component/Resources/Tilda_Icons_30_system_save.ico
+                                        </Fluent:Button.LargeIcon>
+                                    </Fluent:Button>
+                                </StackPanel>
+                            </Grid>
+                        </Fluent:BackstageTabItem>
+                        <!--<Fluent:BackstageTabItem Header="Импортировать"/>-->
+                        <Fluent:Button Header="Выйти" Command="{Binding CloseApplicationCommand}"/>
+                    </Fluent:BackstageTabControl>
+                </Fluent:Backstage>
+            </Fluent:Ribbon.Menu>
+
+            <!--Tabs-->
+            <Fluent:RibbonTabItem Header="Инструменты">
+                <Fluent:RibbonGroupBox Header="Трансформации">
+                    <Fluent:Button Header="Переместить" 
+                                   Icon="pack://application:,,,/LSlicer;component/Resources/change.ico"
+                                   LargeIcon="pack://application:,,,/LSlicer;component/Resources/change.ico" 
+                                   x:Name="TranslateButton"
+                                   Click="TranslateButton_Click">
+
+                    </Fluent:Button>
+                    <Fluent:Button Header="Повернуть" 
+                                   Icon="pack://application:,,,/LSlicer;component/Resources/rotate.ico"
+                                   LargeIcon="pack://application:,,,/LSlicer;component/Resources/rotate.ico"
+                                   x:Name="RotateButton"
+                                   Click="RotateButton_Click">
+                    </Fluent:Button>
+
+                    <Fluent:Button Header="Масштабировать" 
+                                   Icon="pack://application:,,,/LSlicer;component/Resources/scale.ico"
+                                   LargeIcon="pack://application:,,,/LSlicer;component/Resources/scale.ico"
+                                   x:Name="ScaleButton"
+                                   Click="ScaleButton_Click">
+                    </Fluent:Button>
+                </Fluent:RibbonGroupBox>
+                <Fluent:RibbonGroupBox Header="Создание">
+                    <Fluent:Button Header="Скопировать"
+                                   Icon="pack://application:,,,/LSlicer;component/Resources/Tilda_Icons_30_system_link.ico"
+                                   LargeIcon="pack://application:,,,/LSlicer;component/Resources/Tilda_Icons_30_system_link.ico" 
+                                   Command="{Binding Path=CopyPartCommand}"/>
+                    <Fluent:Button Header="Удалить" 
+                                   Icon="pack://application:,,,/LSlicer;component/Resources/Tilda_Icons_30_system_trash.ico"
+                                   LargeIcon="pack://application:,,,/LSlicer;component/Resources/Tilda_Icons_30_system_trash.ico" 
+                                   Command="{Binding Path=RemovePartCommand}"/>
+                    <Fluent:Button Header="Обновить"
+                                   Icon="pack://application:,,,/LSlicer;component/Resources/Tilda_Icons_30_system_reload.ico"
+                                   LargeIcon="pack://application:,,,/LSlicer;component/Resources/Tilda_Icons_30_system_reload.ico"
+                                   Command="{Binding Path=RenewCommand}"/>
+                    <Fluent:Button Header="Очистить"
+                                   Icon="pack://application:,,,/LSlicer;component/Resources/oval.ico"
+                                   LargeIcon="pack://application:,,,/LSlicer;component/Resources/oval.ico"
+                                   Command="{Binding Path=ClearCommand}"/>
+
+                </Fluent:RibbonGroupBox>
+
+                <Fluent:RibbonGroupBox>
+                    <Fluent:Button Header="Инструменты" 
+                                   Icon="pack://application:,,,/LSlicer;component/Resources/ruler-1.ico"
+                                   LargeIcon="pack://application:,,,/LSlicer;component/Resources/ruler-1.ico" 
+                                   Command="{Binding Path=ShowRulerCommand}"/>
+
+                </Fluent:RibbonGroupBox>
+                <Fluent:RibbonGroupBox>
+                    <Fluent:Button Header="Плагины" 
+                                   Icon="pack://application:,,,/LSlicer;component/Resources/satellite.ico"
+                                   LargeIcon="pack://application:,,,/LSlicer;component/Resources/satellite.ico" 
+                                   Command="{Binding Path=ShowPluginCommanderCommand}"/>
+
+                </Fluent:RibbonGroupBox>
+            </Fluent:RibbonTabItem>
+
+            <Fluent:RibbonTabItem Header="Поддержки">
+                <Fluent:RibbonGroupBox Header="Создание поддержек">
+                    <Fluent:Button Header="Создать"
+                                   Icon="pack://application:,,,/LSlicer;component/Resources/Tilda_Icons_30_system_play_prev.ico"
+                                   LargeIcon="pack://application:,,,/LSlicer;component/Resources/Tilda_Icons_30_system_play_prev.ico"
+                                   Command="{Binding Path=SupportAllCommand}"/>
+                    <Fluent:Button Header="Отмена" 
+                                   Icon="pack://application:,,,/LSlicer;component/Resources/Tilda_Icons_30_system_pause.ico"
+                                   LargeIcon="pack://application:,,,/LSlicer;component/Resources/Tilda_Icons_30_system_pause.ico"
+                                   Command="{Binding CancelCammand}"/>
+                </Fluent:RibbonGroupBox>
+
+                <Fluent:RibbonGroupBox Header="Параметры">
+                    <Fluent:Button Header="Параметры" 
+                                   Icon="pack://application:,,,/LSlicer;component/Resources/Tilda_Icons_30_system_settings.ico"
+                                   LargeIcon="pack://application:,,,/LSlicer;component/Resources/Tilda_Icons_30_system_settings.ico"
+                                   Command="{Binding OpenSupportParametersCommand}"/>
+                    <Fluent:ComboBox ItemsSource="{Binding Path=SupportEngineList, UpdateSourceTrigger=PropertyChanged}"
+                                     SelectedItem ="{Binding Path=SelectedSupportEngine, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                </Fluent:RibbonGroupBox>
+            </Fluent:RibbonTabItem>
+
+            <Fluent:RibbonTabItem Header="Нарезка">
+                <Fluent:RibbonGroupBox Header="Нарезка на слои">
+                    <Fluent:Button Header="Нарезать"
+                                   Icon="pack://application:,,,/LSlicer;component/Resources/Tilda_Icons_30_system_play_prev.ico"
+                                   LargeIcon="pack://application:,,,/LSlicer;component/Resources/Tilda_Icons_30_system_play_prev.ico"
+                                   Command="{Binding SliceAllCommand}"/>
+
+                    <Fluent:Button Header="Отмена" 
+                                   Icon="pack://application:,,,/LSlicer;component/Resources/Tilda_Icons_30_system_pause.ico"
+                                   LargeIcon="pack://application:,,,/LSlicer;component/Resources/Tilda_Icons_30_system_pause.ico"
+                                   Command="{Binding CancelCammand}"/>
+                </Fluent:RibbonGroupBox>
+                <Fluent:RibbonGroupBox Header="Параметры нарезки">
+                    <!--<Fluent:Button Header="Предварительная нарезка" 
+                                   Icon="pack://application:,,,/LSlicer;component/Resources/layers.ico"
+                                   LargeIcon="pack://application:,,,/LSlicer;component/Resources/layers.ico"/>-->
+
+                    <Fluent:Button Header="Параметры"
+                                   Icon="pack://application:,,,/LSlicer;component/Resources/Tilda_Icons_30_system_settings.ico"
+                                   LargeIcon="pack://application:,,,/LSlicer;component/Resources/Tilda_Icons_30_system_settings.ico"
+                                   Command="{Binding OpenSliceParametersCommand}"/>
+                    <!--Fluent:ComboBox ItemsSource="{Binding Path=SliceEngineList, UpdateSourceTrigger=PropertyChanged}"
+                                     SelectedItem ="{Binding Path=SelectedSliceEngine, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/-->
+                </Fluent:RibbonGroupBox>
+            </Fluent:RibbonTabItem>
+            <Fluent:RibbonTabItem Header="Настройки">
+                <Fluent:RibbonGroupBox Header="Настройки приложения">
+                    <!--<Fluent:ColorGallery SelectedColor="Chocolate"/>-->
+                    <Fluent:Button Header="Рабочие папки"
+                                   Icon="pack://application:,,,/LSlicer;component/Resources/settings.ico"
+                                   LargeIcon="pack://application:,,,/LSlicer;component/Resources/settings.ico"
+                                   Command="{Binding OpenDirectorySettingsCommand}"/>
+                    <!--Fluent:Button Header="Настройки цвета"
+                                   Icon="pack://application:,,,/LSlicer;component/Resources/bucket-1.ico"
+                                   LargeIcon="pack://application:,,,/LSlicer;component/Resources/bucket-1.ico"
+                                   Command="{Binding OpenColorSettingsCommand}"/-->
+                    <!--Fluent:Button Header="Дополнительные настройки"
+                                   Icon="pack://application:,,,/LSlicer;component/Resources/monitor-2.ico"
+                                   LargeIcon="pack://application:,,,/LSlicer;component/Resources/monitor-2.ico"
+                                   Command="{Binding OpenAdditionSettingsCommand}"/-->
+                    <!--Fluent:Button Header="Авторизация"
+                                   Icon="pack://application:,,,/LSlicer;component/Resources/user-1.ico"
+                                   LargeIcon="pack://application:,,,/LSlicer;component/Resources/user-1.ico"
+                                   Command="{Binding OpenLoginCommand}"/-->
+                    <!--<Fluent:ToggleButton Header="Автосохранение"
+                                   Icon="pack://application:,,,/LSlicer;component/Resources/shield.ico"
+                                   LargeIcon="pack://application:,,,/LSlicer;component/Resources/shield.ico"
+                                   Command="{Binding AutoSaveEnableCommand}"
+                                   IsChecked="{Binding AutoSaveEnabled, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>-->
+                    <Fluent:Button Header="Показать логи"
+                                   Icon="pack://application:,,,/LSlicer;component/Resources/folder.ico"
+                                   LargeIcon="pack://application:,,,/LSlicer;component/Resources/folder.ico"
+                                   Command="{Binding Path=ViewLogsCommand}"/>
+
+                </Fluent:RibbonGroupBox>
+            </Fluent:RibbonTabItem>
+
+
+        </Fluent:Ribbon>
+        <Grid Grid.Row="1" AllowDrop="True">
+            <helix:HelixViewport3D x:Name="viewPort3d" 
+                                   AllowDrop="True"
+                                   ZoomExtentsWhenLoaded="True"
+                                   ShowCoordinateSystem="True"
+                                   Margin="0,0,2,0" 
+                                   ItemsSource="{Binding Objects, Delay=1000}"
+                                   RenderTransformOrigin="0.5,0.5"
+                                   ShowCameraInfo="False"
+                                   Background="{helix:LinearGradientBrush Black, Black}"
+                                   PreviewMouseUp="viewPort3d_MouseDown"
+                                   IsViewCubeEdgeClicksEnabled="True" 
+                                   IsChangeFieldOfViewEnabled="True" 
+                                   IsInertiaEnabled="True" 
+                                   IsMoveEnabled="True" 
+                                   IsPanEnabled="True" 
+                                   IsRotationEnabled="True" 
+                                   IsTouchZoomEnabled="True" 
+                                   IsZoomEnabled="True" 
+                                   Cursor="Cross">
+                <helpers:PushBindingManager.PushBindings>
+                    <helpers:PushBinding TargetProperty="CursorPosition" Path="CursorOnElementPosition"/>
+                </helpers:PushBindingManager.PushBindings>
+
+                <helix:HelixViewport3D.DefaultCamera>
+                    <PerspectiveCamera Position="-20 -40 20" LookDirection="17 34 -17" UpDirection="0 0 1" />
+                </helix:HelixViewport3D.DefaultCamera>
+            </helix:HelixViewport3D>
+
+            <StackPanel x:Name="CursorPositionCard"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Bottom"
+                        Margin="0,0,0,30"
+                        Background="{DynamicResource InfoCard.Background}" 
+                        IsHitTestVisible="True"
+                        Visibility="{Binding CursorPositionCardVisibility}"
+                        Orientation="Horizontal">
+                <StackPanel>
+                    <RadioButton Content="Уголок" 
+                              IsChecked="{Binding Path=DrawRuler, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                              Margin="5"/>
+                    <RadioButton Content="Линейка" 
+                              IsChecked="{Binding Path=DrawStraightedge, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                              Margin="5"/>
+                    <RadioButton Content="Нет" 
+                              Margin="5"/>
+                </StackPanel>
+                <StackPanel Background="{DynamicResource HighTransparentWhiteBrush}">
+                    <StackPanel Orientation="Horizontal" Margin="2">
+                        <TextBlock Text="x" 
+                                   Margin="5,0,4,0"/>
+                        <TextBox Style="{StaticResource PositionInfoTetxtStyle}"
+                                 Background="{Binding Path=Background, RelativeSource={RelativeSource TemplatedParent}}"
+                                 Text="{Binding Path=CursorOnElementPosition.X, ElementName=viewPort3d, StringFormat={}{0:f1}, FallbackValue=---}" 
+                                 TextChanged="TextBox_TextChanged"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="2">
+                        <TextBlock Text="y" 
+                                   Margin="5,0,4,0" />
+                        <TextBox Style="{StaticResource PositionInfoTetxtStyle}"
+                                 Background="{Binding Path=Background, RelativeSource={RelativeSource TemplatedParent}}"
+                                 Text="{Binding Path=CursorOnElementPosition.Y, ElementName=viewPort3d, StringFormat={}{0:f1}, FallbackValue=---}"
+                                 TextChanged="TextBox_TextChanged"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="2">
+                        <TextBlock Text="z" 
+                                   Margin="5,0,4,0" />
+                        <TextBox Style="{StaticResource PositionInfoTetxtStyle}"
+                                 Background="{Binding Path=Background, RelativeSource={RelativeSource TemplatedParent}}"
+                                 Text="{Binding Path=CursorOnElementPosition.Z, ElementName=viewPort3d, StringFormat={}{0:f1}, FallbackValue=---}"
+                                 TextChanged="TextBox_TextChanged"/>
+                    </StackPanel>
+                </StackPanel>
+                <!--<TextBlock HorizontalAlignment="Center" 
+                           Text="OnElement" 
+                           Background="BlanchedAlmond"/>
+                <TextBlock HorizontalAlignment="Center" 
+                           Text="Position" 
+                           Background="BlanchedAlmond"/>-->
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="L" 
+                               Margin="5,0,4,0" />
+                    <TextBox Style="{StaticResource PositionInfoTetxtStyle}"
+                             Background="{Binding Path=Background, RelativeSource={RelativeSource TemplatedParent}}"
+                             
+                             Text="{Binding Path=StraightedgeLength, Mode=Default, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}"/>
+
+                </StackPanel>
+            </StackPanel>
+            <!--дерево деталей-->
+            <StackPanel Orientation="Horizontal">
+                <StackPanel >
+                    <ScrollViewer MaxHeight="600" VerticalScrollBarVisibility="Auto" Style="{StaticResource LeftScrollViewer}">
+                        <Expander Header="Детали" >
+                            <tvx:TreeViewEx Background="Transparent"
+                                        ItemsSource="{Binding Path=Parts, UpdateSourceTrigger=PropertyChanged}"
+                                        SelectionMode="Multiple"
+                                        SelectedItems="{Binding Path=SelectedParts, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                        BorderBrush="#1C0E00"
+                                        BorderThickness="0"
+                                        BackgroundSelectionRectangle="Beige"
+                                        Tag="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type tvx:TreeViewEx}}}">
+                                <tvx:TreeViewEx.Resources>
+                                    <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#ca403e" Opacity="0.5"/>
+                                    <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}" Color="Black" />
+                                    <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}"  Color="Transparent" />
+                                    <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightTextBrushKey}" Color="Black" />
+
+                                    <ContextMenu x:Key="TreeViewItemContextMenu">
+                                        <MenuItem Header="Переместить" Click="TranslateButton_Click"/>
+                                        <MenuItem Header="Повернуть" Click="RotateButton_Click"/>
+                                        <MenuItem Header="Масштабировать" Click="ScaleButton_Click"/>
+                                        <MenuItem Header="Скопировать" Click="CopyPartContextMenu_Click"/>
+                                        <MenuItem Header="Удалить" Click="RemovePartContextMenu_Click"/>
+                                    </ContextMenu>
+                                </tvx:TreeViewEx.Resources>
+
+                                <tvx:TreeViewEx.ItemContainerStyle>
+                                    <Style TargetType="{x:Type tvx:TreeViewExItem}">
+                                        <Style.Resources>
+                                            <SolidColorBrush x:Key="{x:Static SystemColors.ControlBrushKey}" Color="#FF3399FF"/>
+                                        </Style.Resources>
+                                        <Setter Property="ContextMenu" Value="{StaticResource TreeViewItemContextMenu}"/>
+                                        <Setter Property="Background" Value="Transparent"/>
+                                        <Setter Property="BackgroundInactive" Value="#837878"/>
+                                        <Setter Property="BackgroundSelected" Value="#ca403e"/>
+                                        <Setter Property="BackgroundSelectedHovered" Value="#5D5985"/>
+                                        <Setter Property="BackgroundFocusedSelected" Value="#ca403e" />
+                                    </Style>
+                                </tvx:TreeViewEx.ItemContainerStyle>
+                                <tvx:TreeViewEx.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Margin="3" Background="Transparent">
+                                            <TextBlock Text="{Binding Id, UpdateSourceTrigger=PropertyChanged}" 
+                                                       Style="{StaticResource PartInfoTetxtStyle}"/>
+                                            <TextBlock Text="Файл геометрии:" 
+                                                       Style="{StaticResource PartInfoTetxtStyle}"/>
+                                            <TextBlock Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" 
+                                                       Style="{StaticResource PartInfoTetxtStyle}"/>
+                                            <TextBlock Text="Файл нарезки:" 
+                                                       Style="{StaticResource PartInfoTetxtStyle}"/>
+                                            <TextBlock Text="{Binding SliceFileInfo, UpdateSourceTrigger=PropertyChanged}" 
+                                                       Style="{StaticResource PartInfoTetxtStyle}"/>
+                                            <Expander>
+                                                <Expander.Header>
+                                                    <TextBlock Style="{StaticResource PartInfoTetxtStyle}">Параметры поддержек</TextBlock>
+                                                </Expander.Header>
+                                                <ListView ItemsSource="{Binding SupportParametersInfos}" 
+                                                      Background="{StaticResource Fluent.Ribbon.Brushes.CheckBox.Background}" 
+                                                      ItemContainerStyle="{StaticResource ListViewItemPartInfoStyle}"/>
+                                            </Expander>
+                                            <Expander>
+                                                <Expander.Header>
+                                                    <TextBlock Style="{StaticResource PartInfoTetxtStyle}">Параметры нарезки</TextBlock>
+                                                </Expander.Header>
+                                                <ListView ItemsSource="{Binding SlicingParametersInfos}" 
+                                                      Background="{StaticResource Fluent.Ribbon.Brushes.CheckBox.Background}" 
+                                                      ItemContainerStyle="{StaticResource ListViewItemPartInfoStyle}"/>
+                                            </Expander>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </tvx:TreeViewEx.ItemTemplate>
+                            </tvx:TreeViewEx>
+                        </Expander>
+                    </ScrollViewer>
+                </StackPanel>
+            </StackPanel>
+            <!--Правая выдвижная часть интерфейса-->
+            <StackPanel x:Name="RightMenuTranslatePanel"
+                        Orientation="Horizontal"
+                        Margin="0,0,-310,0"
+                        FlowDirection="RightToLeft">
+                <Border BorderBrush="DarkGray"
+                        BorderThickness="0.1">
+                    <Grid Width="330">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="10"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions >
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Button x:Name="ShowRightMenuTranslateButton"
+                                Grid.Column="0"
+                                Grid.RowSpan="2"
+                                Click="ShowRightMenuTranslateButton_Click"
+                                Height="20"
+                                Width="100"
+                                Visibility="Visible"
+                                Margin="310,-100,0,0">
+                            <Button.ToolTip>
+                                <ToolTip FontSize="24">
+                                    Перемещение
+                                </ToolTip>
+                            </Button.ToolTip>
+                            <TextBlock FontSize="10" 
+                                       FontWeight="Black"
+                                       Margin="0"
+                                       >Перемещение</TextBlock>
+                            <Button.LayoutTransform>
+                                <TransformGroup>
+                                    <RotateTransform Angle="90"/>
+                                    <ScaleTransform ScaleX="-1"
+                                                    ScaleY="-1"/>
+                                </TransformGroup>
+                            </Button.LayoutTransform>
+                        </Button>
+                        <Grid Grid.Row="0"
+                              Grid.Column="1"
+                              Height="20"
+                              VerticalAlignment="Top"
+                              Margin="-280,5,0,0">
+                            <Button x:Name="HideRightMenuTranslateButton" 
+                                    HorizontalAlignment="Left" 
+                                    Height="20"
+                                    Width="20"
+                                    Background="Transparent"
+                                    Foreground="White"
+                                    Click="HideRightMenuTranslateButton_Click">X</Button>
+                        </Grid>
+                        <Grid Grid.Column="0"
+                              Grid.Row="1"
+                              Background="Transparent"
+                              Width="250"
+                              Margin="0,-25,-50,0">
+                            <Frame prism:RegionManager.RegionName="PositionRegionTranslate"
+                                   Margin="0,0,0,0"/>
+                        </Grid>
+
+                    </Grid>
+                </Border>
+            </StackPanel>
+            <StackPanel x:Name="RightMenuRotatePanel"
+                        Orientation="Horizontal"
+                        Margin="0,0,-310,0"
+                        FlowDirection="RightToLeft">
+                <Border BorderBrush="DarkGray"
+                        BorderThickness="0.1">
+                    <Grid Width="330">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="10"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions >
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Button x:Name="ShowRightMenuRotateButton"
+                                Grid.Column="0"
+                                Grid.RowSpan="2"
+                                Click="ShowRightMenuRotateButton_Click"
+                                Height="20"
+                                Width="100"
+                                Visibility="Visible"
+                                Margin="310,100,0,0">
+                            <Button.ToolTip>
+                                <ToolTip FontSize="24">
+                                    Поворот
+                                </ToolTip>
+                            </Button.ToolTip>
+                            <TextBlock FontSize="10" 
+                                       FontWeight="Black"
+                                       Margin="0"
+                                       >Поворот</TextBlock>
+                            <Button.LayoutTransform>
+                                <TransformGroup>
+                                    <RotateTransform Angle="90"/>
+                                    <ScaleTransform ScaleX="-1"
+                                                    ScaleY="-1"/>
+                                </TransformGroup>
+                            </Button.LayoutTransform>
+                        </Button>
+                        <Grid Grid.Row="0"
+                              Grid.Column="0"
+                              Height="20"
+                              VerticalAlignment="Top"
+                              Margin="50,250,10,0">
+                            <Button x:Name="HideRightMenuRotateButton"
+                                    HorizontalAlignment="Left"    
+                                    Height="20"
+                                    Width="20"
+                                    Background="Transparent"
+                                    Foreground="White"
+                                    Click="HideRightMenuRotateButton_Click">X</Button>
+                        </Grid>
+
+                        <Grid Grid.Column="0"
+                              Grid.Row="1"
+                              Width="250"
+                              Background="Transparent"
+                              Margin="0,-25,-50,0">
+                            <Frame prism:RegionManager.RegionName="PositionRegionRotate"
+                                   Margin="0,0,0,10"/>
+                        </Grid>
+
+                    </Grid>
+                </Border>
+            </StackPanel>
+            <StackPanel x:Name="RightMenuScalePanel"
+                        Orientation="Horizontal"
+                        Margin="0,0,-310,0"
+                        FlowDirection="RightToLeft">
+                <Border BorderBrush="DarkGray"
+                        BorderThickness="0.1">
+                    <Grid Width="330">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="10"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions >
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Button x:Name="ShowRightMenuScaleButton"
+                                Grid.Column="1"
+                                Grid.RowSpan="2"
+                                Click="ShowRightMenuScaleButton_Click"
+                                Height="20"
+                                Width="100"
+                                Visibility="Visible"
+                                Margin="-10,490,0,0">
+                            <Button.ToolTip>
+                                <ToolTip FontSize="24">
+                                    Масштаб
+                                </ToolTip>
+                            </Button.ToolTip>
+                            <TextBlock FontSize="10" 
+                                       FontWeight="Black"
+                                       Margin="0"
+                                       >Масштаб</TextBlock>
+                            <Button.LayoutTransform>
+                                <TransformGroup>
+                                    <RotateTransform Angle="90"/>
+                                    <ScaleTransform ScaleX="-1"
+                                                    ScaleY="-1"/>
+                                </TransformGroup>
+                            </Button.LayoutTransform>
+                        </Button>
+                        <Grid Grid.Row="0"
+                              Grid.Column="0"
+                              Height="20"
+                              VerticalAlignment="Top"
+                              Margin="10,490,10,0">
+                            <Button x:Name="HideRightMenuScaleButton" 
+                                HorizontalAlignment="Left"                                    
+                                    Width="20"
+                                    Background="Transparent"
+                                    Foreground="White"
+                                    Click="HideRightMenuScaleButton_Click">X</Button>
+                        </Grid>
+                        <Grid Grid.Column="0"
+                              Grid.Row="1"
+                              Height="100"
+                              Background="Transparent"
+                              Margin="10,-10,10,0">
+                            <Frame prism:RegionManager.RegionName="PositionRegionScale"
+                                   Margin="0,0,0,10"/>
+                        </Grid>
+                    </Grid>
+                </Border>
+            </StackPanel>
+
+            <TextBlock 
+                Text="{Binding Path=Status, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                Height="35"
+                VerticalAlignment="Bottom"
+                Style="{StaticResource PartInfoTetxtStyle}"
+                />
+        </Grid>
+
+    </Grid>
+</Window>

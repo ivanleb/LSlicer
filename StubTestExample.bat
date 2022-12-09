@@ -1,0 +1,1 @@
+.\TestEngineStub\bin\Debug\TestEngineStub.exe makesupports -j TestEngineStub\\test_parameters.json -l TestParts\\model.stl 
