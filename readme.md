@@ -1,1 +1,1 @@
-# подложить System.Data.SQLite.Core.targets.user к таргетам msbuild - C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin
+
