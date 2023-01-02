@@ -32,7 +32,6 @@ namespace LSlicer.Views
                 dataContext.SetViewPortCommands(viewPort3d);
             }
 
-
         }
 
         private void ViewPort3d_Drop(object sender, DragEventArgs e)

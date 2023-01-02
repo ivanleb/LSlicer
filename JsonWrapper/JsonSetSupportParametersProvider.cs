@@ -1,7 +1,7 @@
 ﻿using LSlicer.BL.Interaction;
 using LSlicer.BL.Interaction.Contracts;
 using LSlicer.Data.Model;
-using LSlicing.Data.Interaction.Contracts;
+using LSlicer.Data.Interaction.Contracts;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;

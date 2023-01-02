@@ -1,4 +1,4 @@
-﻿using LSlicing.Data.Interaction;
+﻿using LSlicer.Data.Interaction;
 
 namespace LSlicer.Data.Interaction
 {

@@ -7,8 +7,8 @@
     <ProjectGuid>{3A2CF20F-DBF5-40F9-9AFD-684FFD032AD0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>LaserAprSlicing.Data.Interaction</RootNamespace>
-    <AssemblyName>LaserAprSlicing.Data.Interaction</AssemblyName>
+    <RootNamespace>LSlicer.Data.Interaction</RootNamespace>
+    <AssemblyName>LSlicer.Data.Interaction</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

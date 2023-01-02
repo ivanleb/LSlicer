@@ -1,5 +1,5 @@
 ﻿using LSlicer.Data.Interaction;
-using LSlicing.Data.Interaction;
+using LSlicer.Data.Interaction;
 
 namespace LSlicer.Data.Model
 {

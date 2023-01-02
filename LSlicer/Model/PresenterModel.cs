@@ -5,7 +5,7 @@ using LSlicer.Data.Interaction;
 using LSlicer.Data.Operations;
 using LSlicer.Helpers;
 using LSlicer.Infrastructure;
-using LSlicing.Data.Interaction.Contracts;
+using LSlicer.Data.Interaction.Contracts;
 using Prism.Events;
 using System;
 using System.Collections.Generic;

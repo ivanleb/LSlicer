@@ -9,7 +9,7 @@ using LSlicer.Implementations;
 using LSlicer.Model;
 using LSlicer.ViewModels;
 using LSlicer.Views;
-using LSlicing.Data.Interaction.Contracts;
+using LSlicer.Data.Interaction.Contracts;
 using LSlicingLibrary;
 using LSupportLibrary;
 using log4net;

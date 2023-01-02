@@ -8,7 +8,6 @@ using LSlicer.Extensions;
 using LSlicer.Helpers;
 using LSlicer.Infrastructure;
 using LSlicer.Model;
-using Microsoft.Expression.Interactivity.Media;
 using Prism.Commands;
 using Prism.Events;
 using Prism.Mvvm;

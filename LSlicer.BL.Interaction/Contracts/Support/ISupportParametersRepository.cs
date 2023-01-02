@@ -1,5 +1,5 @@
 ﻿using LSlicer.BL.Interaction.Contracts;
-using LSlicing.Data.Interaction.Contracts;
+using LSlicer.Data.Interaction.Contracts;
 using System.Collections.Generic;
 
 namespace LSlicer.BL.Interaction

@@ -1,4 +1,4 @@
-﻿namespace LSlicing.Data.Interaction.Contracts
+﻿namespace LSlicer.Data.Interaction.Contracts
 {
     public enum SupportType
     {

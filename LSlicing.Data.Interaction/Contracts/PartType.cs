@@ -1,4 +1,4 @@
-﻿namespace LSlicing.Data.Interaction
+﻿namespace LSlicer.Data.Interaction
 {
     public enum PartType
     {

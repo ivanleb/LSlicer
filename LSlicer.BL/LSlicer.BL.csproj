@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{7EECB833-FC05-4FC2-ACCA-5167B1C7B2E6}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>LaserAprSlicer.BL</RootNamespace>
-    <AssemblyName>LaserAprSlicer.BL</AssemblyName>
+    <RootNamespace>LSlicer.BL</RootNamespace>
+    <AssemblyName>LSlicer.BL</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

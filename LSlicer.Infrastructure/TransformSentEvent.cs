@@ -1,6 +1,6 @@
 ﻿using LSlicer.BL.Interaction;
 using LSlicer.Data.Interaction;
-using LSlicing.Data.Interaction.Contracts;
+using LSlicer.Data.Interaction.Contracts;
 using PluginFramework;
 using Prism.Events;
 using System;

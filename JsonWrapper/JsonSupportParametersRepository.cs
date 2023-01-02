@@ -1,6 +1,6 @@
 ﻿using LSlicer.BL.Interaction;
 using LSlicer.Data.Model;
-using LSlicing.Data.Interaction.Contracts;
+using LSlicer.Data.Interaction.Contracts;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.IO;

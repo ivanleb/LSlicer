@@ -1,7 +1,6 @@
-﻿using LSlicing.Data.Interaction;
-using LSlicing.Data.Interaction.Contracts;
+﻿using LSlicer.Data.Interaction;
+using LSlicer.Data.Interaction.Contracts;
 using LSlicingLibrary.SliceStrategies;
-using LSlicer.Data.Interaction;
 using System;
 
 namespace LSlicingLibrary

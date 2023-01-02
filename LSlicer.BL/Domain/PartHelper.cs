@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using LSlicing.Data.Interaction;
+using LSlicer.Data.Interaction;
 using LSlicer.Data.Model;
 using LSlicer.BL.Interaction;
 using System.Management.Instrumentation;

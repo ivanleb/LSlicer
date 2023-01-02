@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:prism="http://prismlibrary.com/"   
              xmlns:System="clr-namespace:System;assembly=mscorlib"
-             xmlns:model="clr-namespace:LSlicing.Data.Interaction.Contracts;assembly=LSlicing.Data.Interaction"
+             xmlns:model="clr-namespace:LSlicer.Data.Interaction.Contracts;assembly=LSlicer.Data.Interaction"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="ParametersModule.Views.SupportParametersUC"             
              prism:ViewModelLocator.AutoWireViewModel="True" d:DesignWidth="275">
     <UserControl.Resources>

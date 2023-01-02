@@ -1,4 +1,4 @@
-﻿using LSlicing.Data.Interaction.Contracts;
+﻿using LSlicer.Data.Interaction.Contracts;
 using System.Threading;
 
 namespace LSlicer.Data.Interaction

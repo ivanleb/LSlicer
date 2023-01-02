@@ -7,8 +7,8 @@ namespace LSlicer.Data.Model
         public static PartDataForSave GetChangesForSave(this IPart part, IOperationInfo[] operations) 
             => new PartDataForSave(part, operations);
         
-        public static bool IsSupport(this IPart part) => part.PartSpec.PartType == LSlicing.Data.Interaction.PartType.Support;
-        public static bool IsVolume(this IPart part) => part.PartSpec.PartType == LSlicing.Data.Interaction.PartType.Volume;
+        public static bool IsSupport(this IPart part) => part.PartSpec.PartType == LSlicer.Data.Interaction.PartType.Support;
+        public static bool IsVolume(this IPart part) => part.PartSpec.PartType == LSlicer.Data.Interaction.PartType.Volume;
 
     }
 }

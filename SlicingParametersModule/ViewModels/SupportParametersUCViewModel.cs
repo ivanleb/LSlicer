@@ -1,6 +1,6 @@
 ﻿using LSlicer.Data.Model;
 using LSlicer.Infrastructure;
-using LSlicing.Data.Interaction.Contracts;
+using LSlicer.Data.Interaction.Contracts;
 using Prism.Commands;
 using Prism.Events;
 using Prism.Mvvm;

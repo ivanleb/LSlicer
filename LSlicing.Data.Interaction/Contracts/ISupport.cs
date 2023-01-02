@@ -1,5 +1,5 @@
 ﻿using GeometRi;
-using LSlicing.Data.Interaction.Contracts;
+using LSlicer.Data.Interaction.Contracts;
 using System.Collections.Generic;
 
 namespace LSlicer.Data.Interaction

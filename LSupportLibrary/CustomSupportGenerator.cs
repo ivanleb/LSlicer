@@ -4,7 +4,7 @@ using LSlicer.BL.Interaction.Contracts;
 using LSlicer.Data.Interaction;
 using LSlicer.Data.Operations;
 using LSlicer.Helpers;
-using LSlicing.Data.Interaction.Contracts;
+using LSlicer.Data.Interaction.Contracts;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;

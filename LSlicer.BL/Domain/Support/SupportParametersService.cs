@@ -1,7 +1,7 @@
 ﻿using LSlicer.BL.Interaction;
 using LSlicer.BL.Interaction.Contracts;
 using LSlicer.Helpers;
-using LSlicing.Data.Interaction.Contracts;
+using LSlicer.Data.Interaction.Contracts;
 using System;
 using System.Collections.Generic;
 using System.IO;

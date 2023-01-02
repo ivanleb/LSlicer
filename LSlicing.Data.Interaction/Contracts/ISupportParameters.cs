@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace LSlicing.Data.Interaction.Contracts
+namespace LSlicer.Data.Interaction.Contracts
 {
 
     public interface ISupportParameters : ICloneable, IIdentifier, IHasName
