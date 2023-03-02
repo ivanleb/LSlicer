@@ -42,5 +42,10 @@ namespace LSlicer.Implementations
         }
 
         public object Clone() => this.MemberwiseClone();
+
+        public void SetForUser(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

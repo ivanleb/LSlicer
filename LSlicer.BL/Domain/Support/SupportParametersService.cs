@@ -26,8 +26,8 @@ namespace LSlicer.BL.Domain
             _setParametersProvider = setParametersProvider;
             _supportParametersRepository = supportParametersRepository;
             _appSettings = appSettings;
-            _actualSupportParameters.Add(int.MinValue, new List<(string ParametersIdentifier, FileInfo ParametersFile)> 
-                { ("default", new FileInfo(PathHelper.Resolve(_appSettings.DefaultSupportParameters)) )});
+            //_actualSupportParameters.Add(int.MinValue, new List<(string ParametersIdentifier, FileInfo ParametersFile)> 
+            //    { ("default", new FileInfo(PathHelper.Resolve(_appSettings.DefaultSupportParameters)) )});
             _logger = logger;
         }
 

@@ -13,7 +13,7 @@ namespace LSlicer.Model
         private readonly IEventAggregator _ea;
         private readonly ILoggerService _loggerService;
         private readonly UserIdentityController _controller;
-        private readonly DbCurrentAppSettings _appSettings;
+        private readonly IAppSettings _appSettings;
         private Window _loginWindow;
         private readonly IUnityContainer _containerProvider;
         private Boolean _isAutorized;
@@ -22,7 +22,7 @@ namespace LSlicer.Model
         public IdentityController(
             IEventAggregator ea,
             UserIdentityController controller,
-            DbCurrentAppSettings appSettings,
+            IAppSettings appSettings,
             ILoggerService loggerService,
             IUnityContainer containerProvider)
         {

@@ -44,19 +44,20 @@ namespace LSlicer
             ILoggerRepository repository = LogManager.GetRepository(Assembly.GetCallingAssembly());
             XmlConfigurator.Configure(repository, new FileInfo("log4net.xml"));
 
-            var logger = LogManager.GetLogger("LogRepo", "Logger");
+            var logger = LogManager.GetLogger(Assembly.GetCallingAssembly()/*"LogRepo"*/, "Logger");
             var loggerService = new LoggerService(logger);
             try
             {
-                AppSettingsContext appSettingsContext = new AppSettingsContext(loggerService);
-                DbCurrentAppSettings dbCurrentAppSettings = new DbCurrentAppSettings(appSettingsContext, AppSettings.DefaultValue);
+                //AppSettingsContext appSettingsContext = new AppSettingsContext(loggerService);
+                //DbCurrentAppSettings dbCurrentAppSettings = new DbCurrentAppSettings(new AppSettingsContext(), AppSettings.DefaultValue);
+                DefaultAppSettings emptyAppSettings = new DefaultAppSettings();
 
-                SetEnginePath(dbCurrentAppSettings);
+                //SetEnginePath(emptyAppSettings);
                 containerRegistry.RegisterSingleton<ICloseApplicationHandler, CloseAppHandler>();
                 containerRegistry.RegisterSingleton<IInstallPluginStrategy, ReflectionPluginInstaller>();
                 containerRegistry.RegisterSingleton<IPluginManager, PluginManager>();
                 containerRegistry.RegisterSingleton<IPluginsActivator, ReflectionPluginInstaller>();
-                containerRegistry.RegisterInstance(appSettingsContext);
+                //containerRegistry.RegisterInstance(appSettingsContext);
                 containerRegistry.RegisterSingleton<UserIdentityController>();
                 containerRegistry.RegisterSingleton<IdentityController>();
                 containerRegistry.RegisterSingleton<SettingsController>();
@@ -64,7 +65,7 @@ namespace LSlicer
                 containerRegistry.RegisterSingleton<WorkTaskModel>();
                 containerRegistry.RegisterSingleton<ParametersModel>();
                 containerRegistry.RegisterInstance<ILoggerService>(loggerService);
-                containerRegistry.RegisterInstance<IAppSettings>(dbCurrentAppSettings);
+                containerRegistry.RegisterInstance<IAppSettings>(emptyAppSettings);
                 containerRegistry.Register<IWorkSaver, LocalResultWorkSaver>();
                 containerRegistry.RegisterSingleton<IPartService, PartService<string>>();
                 containerRegistry.RegisterSingleton<IOperationStack, OperationStack>();
@@ -148,7 +149,7 @@ namespace LSlicer
 
         protected override Window CreateShell()
         {
-            var logger = LogManager.GetLogger("LogRepo", "Logger");
+            var logger = LogManager.GetLogger(Assembly.GetCallingAssembly()/*"LogRepo"*/, "Logger");
             try
             {
                 var container = Container.GetContainer() as UnityContainer;

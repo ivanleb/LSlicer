@@ -42,6 +42,10 @@
     <None Update="plugins.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\impossible-triangle.png" />
@@ -364,6 +368,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="appsettings.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
   </ItemGroup>
   <PropertyGroup>
     <PostBuildEvent>robocopy "%25CD%25\..\..\..\Resources" "Resources"

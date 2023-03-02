@@ -26,12 +26,12 @@
     <ProjectReference Include="..\LSlicer.BL.Interaction\LSlicer.BL.Interaction.csproj" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Extended.Wpf.Toolkit" Version="4.5.0" />
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageReference Include="Prism.Wpf" Version="8.1.97" />
     <PackageReference Include="Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers" Version="0.4.355802">
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="Extended.Wpf.Toolkit" Version="3.8.2" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
