@@ -1,0 +1,2038 @@
+﻿{
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Dependency Analysis",
+          "semanticVersion": "0.4.355802",
+          "informationUri": "https://docs.microsoft.com/en-us/dotnet/core/porting/upgrade-assistant-overview",
+          "rules": [
+            {
+              "id": "UA103",
+              "name": "ReferenceToBeDeleted",
+              "fullDescription": {
+                "text": "References that need to be deleted in order to upgrade the project to chosen TFM"
+              },
+              "helpUri": "https://docs.microsoft.com/en-us/dotnet/core/porting/upgrade-assistant-overview"
+            },
+            {
+              "id": "UA105",
+              "name": "PackageToBeDeleted",
+              "fullDescription": {
+                "text": "Packages that need to be deleted in order to upgrade the project to chosen TFM"
+              },
+              "helpUri": "https://docs.microsoft.com/en-us/dotnet/core/porting/upgrade-assistant-overview"
+            },
+            {
+              "id": "UA106",
+              "name": "PackageToBeAdded",
+              "fullDescription": {
+                "text": "Packages that need to be added in order to upgrade the project to chosen TFM"
+              },
+              "helpUri": "https://docs.microsoft.com/en-us/dotnet/core/porting/upgrade-assistant-overview"
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "UA103",
+          "message": {
+            "text": "Reference to System.Configuration needs to be deleted."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSlicer/LSlicer.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA105",
+          "message": {
+            "text": "Package Extended.Wpf.Toolkit, Version=3.6.0 needs to be deleted."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSlicer/LSlicer.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA105",
+          "message": {
+            "text": "Package ControlzEx, Version=4.1.0 needs to be deleted."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSlicer/LSlicer.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA105",
+          "message": {
+            "text": "Package Microsoft.Extensions.DependencyInjection.Abstractions, Version=5.0.0 needs to be deleted."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSlicer/LSlicer.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA105",
+          "message": {
+            "text": "Package Prism.Core, Version=8.1.97 needs to be deleted."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSlicer/LSlicer.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA105",
+          "message": {
+            "text": "Package Prism.Wpf, Version=8.1.97 needs to be deleted."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSlicer/LSlicer.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA105",
+          "message": {
+            "text": "Package SharpDX, Version=4.2.0 needs to be deleted."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSlicer/LSlicer.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA105",
+          "message": {
+            "text": "Package SharpDX.DXGI, Version=4.2.0 needs to be deleted."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSlicer/LSlicer.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA105",
+          "message": {
+            "text": "Package System.ComponentModel.Annotations, Version=4.6.0 needs to be deleted."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSlicer/LSlicer.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA105",
+          "message": {
+            "text": "Package System.Configuration.ConfigurationManager, Version=4.6.0 needs to be deleted."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSlicer/LSlicer.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA105",
+          "message": {
+            "text": "Package System.Runtime.Serialization.Formatters, Version=4.3.0 needs to be deleted."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSlicer/LSlicer.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA105",
+          "message": {
+            "text": "Package System.Runtime.Serialization.Primitives, Version=4.3.0 needs to be deleted."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSlicer/LSlicer.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA105",
+          "message": {
+            "text": "Package System.Security.AccessControl, Version=4.6.0 needs to be deleted."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSlicer/LSlicer.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA105",
+          "message": {
+            "text": "Package System.Security.Permissions, Version=4.6.0 needs to be deleted."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSlicer/LSlicer.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA105",
+          "message": {
+            "text": "Package System.Security.Principal.Windows, Version=4.6.0 needs to be deleted."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSlicer/LSlicer.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA105",
+          "message": {
+            "text": "Package Unity.Abstractions, Version=5.11.7 needs to be deleted."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSlicer/LSlicer.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA105",
+          "message": {
+            "text": "Package Unity.Container, Version=5.11.11 needs to be deleted."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSlicer/LSlicer.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA105",
+          "message": {
+            "text": "Package WindowsAPICodePack-Core, Version=1.1.1 needs to be deleted."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSlicer/LSlicer.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA106",
+          "message": {
+            "text": "Package System.Configuration.ConfigurationManager, Version=5.0.0 needs to be added."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSlicer/LSlicer.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA106",
+          "message": {
+            "text": "Package Extended.Wpf.Toolkit, Version=3.8.2 needs to be added."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSlicer/LSlicer.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA106",
+          "message": {
+            "text": "Package Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers, Version=0.4.355802 needs to be added."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSlicer/LSlicer.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA106",
+          "message": {
+            "text": "Package Microsoft.Windows.Compatibility, Version=7.0.0 needs to be added."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSlicer/LSlicer.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA105",
+          "message": {
+            "text": "Package HelixToolkit.Wpf, Version=2.11.0 does not support the target(s) net7.0-windows but a newer version (2.23.0) does.  Package HelixToolkit.Wpf needs to be upgraded from 2.11.0 to 2.23.0."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSlicer.Data/LSlicer.Data.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA106",
+          "message": {
+            "text": "Package HelixToolkit.Wpf, Version=2.23.0 needs to be added."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSlicer.Data/LSlicer.Data.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA106",
+          "message": {
+            "text": "Package Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers, Version=0.4.355802 needs to be added."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSlicer.Data/LSlicer.Data.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA106",
+          "message": {
+            "text": "Package Microsoft.Windows.Compatibility, Version=7.0.0 needs to be added."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSlicer.Data/LSlicer.Data.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA103",
+          "message": {
+            "text": "Reference to System.Configuration needs to be deleted."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSlicer.BL/LSlicer.BL.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA105",
+          "message": {
+            "text": "Package HelixToolkit.Wpf, Version=2.9.0 needs to be deleted."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSlicer.BL/LSlicer.BL.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA105",
+          "message": {
+            "text": "Package CommonServiceLocator, Version=2.0.4 needs to be deleted."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSlicer.BL/LSlicer.BL.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA105",
+          "message": {
+            "text": "Package HelixToolkit, Version=2.9.0 needs to be deleted."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSlicer.BL/LSlicer.BL.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA105",
+          "message": {
+            "text": "Package Prism.Core, Version=7.2.0.1422 needs to be deleted."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSlicer.BL/LSlicer.BL.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA105",
+          "message": {
+            "text": "Package SharpDX, Version=4.2.0 needs to be deleted."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSlicer.BL/LSlicer.BL.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA105",
+          "message": {
+            "text": "Package SharpDX.D3DCompiler, Version=4.2.0 needs to be deleted."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSlicer.BL/LSlicer.BL.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA105",
+          "message": {
+            "text": "Package SharpDX.Direct2D1, Version=4.2.0 needs to be deleted."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSlicer.BL/LSlicer.BL.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA105",
+          "message": {
+            "text": "Package SharpDX.Direct3D11, Version=4.2.0 needs to be deleted."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSlicer.BL/LSlicer.BL.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA105",
+          "message": {
+            "text": "Package SharpDX.Direct3D9, Version=4.2.0 needs to be deleted."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSlicer.BL/LSlicer.BL.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA105",
+          "message": {
+            "text": "Package SharpDX.DXGI, Version=4.2.0 needs to be deleted."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSlicer.BL/LSlicer.BL.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA105",
+          "message": {
+            "text": "Package SharpDX.Mathematics, Version=4.2.0 needs to be deleted."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSlicer.BL/LSlicer.BL.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA105",
+          "message": {
+            "text": "Package System.Runtime.CompilerServices.Unsafe, Version=4.5.2 needs to be deleted."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSlicer.BL/LSlicer.BL.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA105",
+          "message": {
+            "text": "Package System.Threading.Tasks.Extensions, Version=4.5.2 needs to be deleted."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSlicer.BL/LSlicer.BL.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA105",
+          "message": {
+            "text": "Package Unity.Abstractions, Version=5.11.1 needs to be deleted."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSlicer.BL/LSlicer.BL.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA106",
+          "message": {
+            "text": "Package System.Configuration.ConfigurationManager, Version=5.0.0 needs to be added."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSlicer.BL/LSlicer.BL.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA106",
+          "message": {
+            "text": "Package HelixToolkit.Wpf, Version=2.23.0 needs to be added."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSlicer.BL/LSlicer.BL.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA106",
+          "message": {
+            "text": "Package Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers, Version=0.4.355802 needs to be added."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSlicer.BL/LSlicer.BL.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA106",
+          "message": {
+            "text": "Package Microsoft.Windows.Compatibility, Version=7.0.0 needs to be added."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSlicer.BL/LSlicer.BL.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA105",
+          "message": {
+            "text": "Package Extended.Wpf.Toolkit, Version=3.5.0 does not support the target(s) net7.0-windows but a newer version (3.8.2) does.  Package Extended.Wpf.Toolkit needs to be upgraded from 3.5.0 to 3.8.2."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/MenuModule/MenuModule.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA106",
+          "message": {
+            "text": "Package Extended.Wpf.Toolkit, Version=3.8.2 needs to be added."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/MenuModule/MenuModule.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA106",
+          "message": {
+            "text": "Package Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers, Version=0.4.355802 needs to be added."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/MenuModule/MenuModule.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA106",
+          "message": {
+            "text": "Package Microsoft.Windows.Compatibility, Version=7.0.0 needs to be added."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/MenuModule/MenuModule.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA103",
+          "message": {
+            "text": "Reference to System.Configuration needs to be deleted."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSlicer.Infrastructure/LSlicer.Infrastructure.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA105",
+          "message": {
+            "text": "Package Microsoft.Xaml.Behaviors.Wpf, Version=1.1.31 needs to be deleted."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSlicer.Infrastructure/LSlicer.Infrastructure.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA105",
+          "message": {
+            "text": "Package Prism.Core, Version=8.1.97 needs to be deleted."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSlicer.Infrastructure/LSlicer.Infrastructure.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA105",
+          "message": {
+            "text": "Package Prism.Wpf, Version=8.1.97 needs to be deleted."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSlicer.Infrastructure/LSlicer.Infrastructure.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA105",
+          "message": {
+            "text": "Package System.Runtime.CompilerServices.Unsafe, Version=4.5.2 needs to be deleted."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSlicer.Infrastructure/LSlicer.Infrastructure.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA105",
+          "message": {
+            "text": "Package System.Threading.Tasks.Extensions, Version=4.5.2 needs to be deleted."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSlicer.Infrastructure/LSlicer.Infrastructure.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA105",
+          "message": {
+            "text": "Package Unity.Abstractions, Version=5.11.7 needs to be deleted."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSlicer.Infrastructure/LSlicer.Infrastructure.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA105",
+          "message": {
+            "text": "Package Unity.Container, Version=5.11.11 needs to be deleted."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSlicer.Infrastructure/LSlicer.Infrastructure.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA105",
+          "message": {
+            "text": "Package WindowsAPICodePack-Core, Version=1.1.1 needs to be deleted."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSlicer.Infrastructure/LSlicer.Infrastructure.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA106",
+          "message": {
+            "text": "Package System.Configuration.ConfigurationManager, Version=5.0.0 needs to be added."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSlicer.Infrastructure/LSlicer.Infrastructure.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA106",
+          "message": {
+            "text": "Package Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers, Version=0.4.355802 needs to be added."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSlicer.Infrastructure/LSlicer.Infrastructure.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA106",
+          "message": {
+            "text": "Package Microsoft.Windows.Compatibility, Version=7.0.0 needs to be added."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSlicer.Infrastructure/LSlicer.Infrastructure.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA106",
+          "message": {
+            "text": "Package Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers, Version=0.4.355802 needs to be added."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/SlicingManager/SlicingManager.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA106",
+          "message": {
+            "text": "Package Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers, Version=0.4.355802 needs to be added."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSlicer.BL.Interaction/LSlicer.BL.Interaction.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA106",
+          "message": {
+            "text": "Package Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers, Version=0.4.355802 needs to be added."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSlicing.Data.Interaction/LSlicer.Data.Interaction.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA106",
+          "message": {
+            "text": "Package Microsoft.Windows.Compatibility, Version=7.0.0 needs to be added."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSlicing.Data.Interaction/LSlicer.Data.Interaction.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA105",
+          "message": {
+            "text": "Package Dynamitey needs to be removed as its a transitive dependency that is not required"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSlicer.Helpers/LSlicer.Helpers.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA106",
+          "message": {
+            "text": "Package Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers, Version=0.4.355802 needs to be added."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSlicer.Helpers/LSlicer.Helpers.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA106",
+          "message": {
+            "text": "Package Microsoft.Windows.Compatibility, Version=7.0.0 needs to be added."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSlicer.Helpers/LSlicer.Helpers.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA106",
+          "message": {
+            "text": "Package Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers, Version=0.4.355802 needs to be added."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/TestEngineStub/TestEngineStub.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA105",
+          "message": {
+            "text": "Package MSTest.TestAdapter, Version=1.3.2 does not support the target(s) netstandard2.0 but a newer version (2.2.10) does.  Package MSTest.TestAdapter needs to be upgraded across major versions (1.3.2 -> 2.2.10) which may introduce breaking changes."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/SlicingParametersTests/SlicingParametersTests.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA106",
+          "message": {
+            "text": "Package MSTest.TestAdapter, Version=2.2.10 needs to be added."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/SlicingParametersTests/SlicingParametersTests.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA106",
+          "message": {
+            "text": "Package Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers, Version=0.4.355802 needs to be added."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/SlicingParametersTests/SlicingParametersTests.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA106",
+          "message": {
+            "text": "Package Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers, Version=0.4.355802 needs to be added."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/JsonWrapper/JsonWrapper.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA106",
+          "message": {
+            "text": "Package Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers, Version=0.4.355802 needs to be added."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/SlicingParametersModule/ParametersModule.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA106",
+          "message": {
+            "text": "Package Microsoft.Windows.Compatibility, Version=7.0.0 needs to be added."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/SlicingParametersModule/ParametersModule.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA106",
+          "message": {
+            "text": "Package Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers, Version=0.4.355802 needs to be added."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/SupportManager/SupportManager.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA106",
+          "message": {
+            "text": "Package Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers, Version=0.4.355802 needs to be added."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/SupportEngine/SupportEngine.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA106",
+          "message": {
+            "text": "Package Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers, Version=0.4.355802 needs to be added."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/geometry3Sharp/geometry3Sharp.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA106",
+          "message": {
+            "text": "Package Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers, Version=0.4.355802 needs to be added."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/gsSlicerPro/gsSlicerPro.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA106",
+          "message": {
+            "text": "Package Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers, Version=0.4.355802 needs to be added."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/clipper_library/clipper_lirary/clipper_lirary.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA106",
+          "message": {
+            "text": "Package Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers, Version=0.4.355802 needs to be added."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/gsGeometry/gsGeometry.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA106",
+          "message": {
+            "text": "Package Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers, Version=0.4.355802 needs to be added."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/gsSlicer/gsSlicer.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA106",
+          "message": {
+            "text": "Package Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers, Version=0.4.355802 needs to be added."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/gsGCode/gsGCode.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA105",
+          "message": {
+            "text": "Package HelixToolkit.Wpf, Version=2.11.0 does not support the target(s) net7.0-windows but a newer version (2.23.0) does.  Package HelixToolkit.Wpf needs to be upgraded from 2.11.0 to 2.23.0."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSlicingLibrary/SlicingLibrary.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA106",
+          "message": {
+            "text": "Package HelixToolkit.Wpf, Version=2.23.0 needs to be added."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSlicingLibrary/SlicingLibrary.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA106",
+          "message": {
+            "text": "Package Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers, Version=0.4.355802 needs to be added."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSlicingLibrary/SlicingLibrary.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA106",
+          "message": {
+            "text": "Package Microsoft.Windows.Compatibility, Version=7.0.0 needs to be added."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSlicingLibrary/SlicingLibrary.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA105",
+          "message": {
+            "text": "Package HelixToolkit.Wpf, Version=2.11.0 does not support the target(s) net7.0-windows but a newer version (2.23.0) does.  Package HelixToolkit.Wpf needs to be upgraded from 2.11.0 to 2.23.0."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSupportLibrary/SupportLibrary.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA106",
+          "message": {
+            "text": "Package HelixToolkit.Wpf, Version=2.23.0 needs to be added."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSupportLibrary/SupportLibrary.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA106",
+          "message": {
+            "text": "Package Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers, Version=0.4.355802 needs to be added."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSupportLibrary/SupportLibrary.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA106",
+          "message": {
+            "text": "Package Microsoft.Windows.Compatibility, Version=7.0.0 needs to be added."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/LSupportLibrary/SupportLibrary.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA105",
+          "message": {
+            "text": "Package WixSharp.bin needs to be removed as its a transitive dependency that is not required"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/SlicerInstaller/SlicerInstaller.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA106",
+          "message": {
+            "text": "Package Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers, Version=0.4.355802 needs to be added."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/SlicerInstaller/SlicerInstaller.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA106",
+          "message": {
+            "text": "Package Microsoft.Windows.Compatibility, Version=7.0.0 needs to be added."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/SlicerInstaller/SlicerInstaller.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA105",
+          "message": {
+            "text": "Package Prism.Core needs to be removed as its a transitive dependency that is not required"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/UtilModule/UtilModule.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA106",
+          "message": {
+            "text": "Package Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers, Version=0.4.355802 needs to be added."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/UtilModule/UtilModule.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA106",
+          "message": {
+            "text": "Package Microsoft.Windows.Compatibility, Version=7.0.0 needs to be added."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/UtilModule/UtilModule.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA105",
+          "message": {
+            "text": "Package HelixToolkit.Wpf, Version=2.11.0 does not support the target(s) net7.0-windows but a newer version (2.23.0) does.  Package HelixToolkit.Wpf needs to be upgraded from 2.11.0 to 2.23.0."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/EngineHelpers/EngineHelpers.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA106",
+          "message": {
+            "text": "Package HelixToolkit.Wpf, Version=2.23.0 needs to be added."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/EngineHelpers/EngineHelpers.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA106",
+          "message": {
+            "text": "Package Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers, Version=0.4.355802 needs to be added."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/EngineHelpers/EngineHelpers.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA106",
+          "message": {
+            "text": "Package Microsoft.Windows.Compatibility, Version=7.0.0 needs to be added."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/EngineHelpers/EngineHelpers.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA106",
+          "message": {
+            "text": "Package Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers, Version=0.4.355802 needs to be added."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/GradientSpaceSliceEngine/GradientSpaceSliceEngine.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA105",
+          "message": {
+            "text": "Package WindowsAPICodePack-Core needs to be removed as its a transitive dependency that is not required"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/ZipPartsPlugin/ZipPartsPlugin.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA106",
+          "message": {
+            "text": "Package Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers, Version=0.4.355802 needs to be added."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/ZipPartsPlugin/ZipPartsPlugin.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA106",
+          "message": {
+            "text": "Package Microsoft.Windows.Compatibility, Version=7.0.0 needs to be added."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/ZipPartsPlugin/ZipPartsPlugin.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA103",
+          "message": {
+            "text": "Reference to System.Configuration needs to be deleted."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/PluginFramework/PluginFramework.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA105",
+          "message": {
+            "text": "Package System.Runtime.CompilerServices.Unsafe, Version=4.5.2 needs to be deleted."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/PluginFramework/PluginFramework.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA105",
+          "message": {
+            "text": "Package System.Threading.Tasks.Extensions, Version=4.5.2 needs to be deleted."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/PluginFramework/PluginFramework.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA105",
+          "message": {
+            "text": "Package Unity.Container, Version=5.11.5 needs to be deleted."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/PluginFramework/PluginFramework.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA106",
+          "message": {
+            "text": "Package System.Configuration.ConfigurationManager, Version=5.0.0 needs to be added."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/PluginFramework/PluginFramework.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA106",
+          "message": {
+            "text": "Package Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers, Version=0.4.355802 needs to be added."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/PluginFramework/PluginFramework.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA106",
+          "message": {
+            "text": "Package Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers, Version=0.4.355802 needs to be added."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/PluginManagementModule/PluginManagementModule.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA106",
+          "message": {
+            "text": "Package Microsoft.Windows.Compatibility, Version=7.0.0 needs to be added."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/PluginManagementModule/PluginManagementModule.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "API Upgradability",
+          "semanticVersion": "0.4.355802",
+          "informationUri": "https://docs.microsoft.com/en-us/dotnet/core/porting/upgrade-assistant-overview",
+          "rules": [
+            {
+              "id": "UA0002",
+              "name": "Types should be upgraded",
+              "fullDescription": {
+                "text": "Types should be upgraded"
+              },
+              "helpUri": "about:blank"
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "UA0002",
+          "message": {
+            "text": "Type 'ActionResult' should be replaced with 'Microsoft.AspNetCore.Mvc.ActionResult'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/SlicerInstaller/CreateDirectoryActions.cs"
+                },
+                "region": {
+                  "startLine": 10
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA0002",
+          "message": {
+            "text": "Type 'ActionResult' should be replaced with 'Microsoft.AspNetCore.Mvc.ActionResult'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/SlicerInstaller/CreateDirectoryActions.cs"
+                },
+                "region": {
+                  "startLine": 25
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA0002",
+          "message": {
+            "text": "Type 'ActionResult' should be replaced with 'Microsoft.AspNetCore.Mvc.ActionResult'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/SlicerInstaller/CreateDirectoryActions.cs"
+                },
+                "region": {
+                  "startLine": 34
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA0002",
+          "message": {
+            "text": "Type 'ActionResult' should be replaced with 'Microsoft.AspNetCore.Mvc.ActionResult'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/SlicerInstaller/CreateDirectoryActions.cs"
+                },
+                "region": {
+                  "startLine": 39
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA0002",
+          "message": {
+            "text": "Type 'ActionResult' should be replaced with 'Microsoft.AspNetCore.Mvc.ActionResult'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/SlicerInstaller/CreateDirectoryActions.cs"
+                },
+                "region": {
+                  "startLine": 19
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA0002",
+          "message": {
+            "text": "Type 'ActionResult' should be replaced with 'Microsoft.AspNetCore.Mvc.ActionResult'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/SlicerInstaller/CreateDirectoryActions.cs"
+                },
+                "region": {
+                  "startLine": 30
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UA0002",
+          "message": {
+            "text": "Type 'ActionResult' should be replaced with 'Microsoft.AspNetCore.Mvc.ActionResult'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/SlicerInstaller/CreateDirectoryActions.cs"
+                },
+                "region": {
+                  "startLine": 21
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Component Analysis",
+          "semanticVersion": "0.4.355802",
+          "informationUri": "https://docs.microsoft.com/en-us/dotnet/core/porting/upgrade-assistant-overview",
+          "rules": [
+            {
+              "id": "UA209",
+              "name": "Microsoft.DotNet.UpgradeAssistant.Extensions.Windows.WinformsDefaultFontUpdater",
+              "fullDescription": {
+                "text": "Default Font API Alert"
+              },
+              "helpUri": "about:blank"
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "UA209",
+          "message": {
+            "text": "Default font in Windows Forms has been changed from Microsoft Sans Serif to Seg Segoe UI, in order to change the default font use the API - Application.SetDefaultFont(Font font). For more details see here - https://devblogs.microsoft.com/dotnet/whats-new-in-windows-forms-in-net-6-0-preview-5/#application-wide-default-font."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/projects/LSlicer/LSlicer/ZipPartsPlugin/ZipPartsPlugin.csproj"
+                },
+                "region": {}
+              }
+            }
+          ]
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    }
+  ]
+}

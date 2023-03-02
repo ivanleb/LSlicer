@@ -9,8 +9,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Windows;
 using Unity;
-using PluginFramework.Installation;
 using System.Runtime.Remoting;
+using PluginFramework.CustomPlugin.Helpers;
 
 namespace LSlicer.Model
 {
@@ -72,7 +72,7 @@ namespace LSlicer.Model
             try
             {
                 pluginsContainer = _pluginManager.GetPlugins()
-                                   .ForEach(plugin => _logger.Info($"[{nameof(PluginController)}] Load plugin \"{plugin.Name}\", remote: '{RemotingServices.IsTransparentProxy(plugin)}' "));
+                                   .ForEach(plugin => _logger.Info($"[{nameof(PluginController)}] Load plugin \"{plugin.Name}\", remote: '/*RemotingServices.IsTransparentProxy(plugin)*/' "));
             }
             catch (Exception e)
             {

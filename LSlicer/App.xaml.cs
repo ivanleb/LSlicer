@@ -15,7 +15,6 @@ using LSupportLibrary;
 using log4net;
 using log4net.Config;
 using PluginFramework;
-using PluginFramework.Installation;
 using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Unity;
@@ -28,6 +27,9 @@ using Unity;
 using Unity.Injection;
 using Unity.Resolution;
 using Unity.ServiceLocation;
+using log4net.Repository;
+using System.Reflection;
+using PluginFramework.CustomPlugin.Installation;
 
 namespace LSlicer
 {
@@ -39,8 +41,10 @@ namespace LSlicer
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             ShowPreviewScreen();
-            XmlConfigurator.Configure();
-            var logger = LogManager.GetLogger("Logger");
+            ILoggerRepository repository = LogManager.GetRepository(Assembly.GetCallingAssembly());
+            XmlConfigurator.Configure(repository, new FileInfo("log4net.xml"));
+
+            var logger = LogManager.GetLogger("LogRepo", "Logger");
             var loggerService = new LoggerService(logger);
             try
             {
@@ -144,7 +148,7 @@ namespace LSlicer
 
         protected override Window CreateShell()
         {
-            var logger = LogManager.GetLogger("Logger");
+            var logger = LogManager.GetLogger("LogRepo", "Logger");
             try
             {
                 var container = Container.GetContainer() as UnityContainer;

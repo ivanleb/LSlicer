@@ -5,7 +5,7 @@ using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Migrations;
 using System.Data.SQLite;
 using System.Data.SQLite.EF6;
-using System.Data.SQLite.EF6.Migrations;
+//using System.Data.SQLite.EF6.Migrations;
 
 namespace LSlicer.Implementations
 {

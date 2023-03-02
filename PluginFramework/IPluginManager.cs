@@ -1,5 +1,4 @@
-﻿using PluginFramework.Installation;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace PluginFramework
 {

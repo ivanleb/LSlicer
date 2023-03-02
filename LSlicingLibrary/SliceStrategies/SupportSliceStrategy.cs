@@ -307,7 +307,9 @@ namespace LSlicingLibrary.SliceStrategies
             BinaryFormatter formatter = new BinaryFormatter();
             using (FileStream fs = new FileStream(fileName, FileMode.OpenOrCreate))
             {
+#pragma warning disable SYSLIB0011 // Type or member is obsolete
                 SupLine = (List<Segment3d>)formatter.Deserialize(fs);
+#pragma warning restore SYSLIB0011 // Type or member is obsolete
             }
         }
 
@@ -316,7 +318,9 @@ namespace LSlicingLibrary.SliceStrategies
             BinaryFormatter formatter = new BinaryFormatter();
             using (FileStream fs = new FileStream(fileName, FileMode.OpenOrCreate))
             {
+#pragma warning disable SYSLIB0011 // Type or member is obsolete
                 SupportParameters = (SupportParameters)formatter.Deserialize(fs);
+#pragma warning restore SYSLIB0011 // Type or member is obsolete
             }
         }
     }

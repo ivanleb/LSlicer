@@ -667,7 +667,9 @@ namespace LSupportLibrary
 
             using (FileStream fs = new FileStream(fileName + ".supline", FileMode.Create))
             {
+#pragma warning disable SYSLIB0011 // Type or member is obsolete
                 formatter.Serialize(fs, LineList);
+#pragma warning restore SYSLIB0011 // Type or member is obsolete
             }
         }
 
@@ -676,7 +678,9 @@ namespace LSupportLibrary
             BinaryFormatter formatter = new BinaryFormatter();
             using (FileStream fs = new FileStream(fileName + ".param", FileMode.Create))
             {
+#pragma warning disable SYSLIB0011 // Type or member is obsolete
                 formatter.Serialize(fs, supportParameters);
+#pragma warning restore SYSLIB0011 // Type or member is obsolete
             }
         }
 

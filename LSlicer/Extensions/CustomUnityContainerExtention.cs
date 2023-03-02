@@ -29,11 +29,11 @@ namespace LSlicer.Extensions
         /// <param name="shadowFiles"></param>
         public void CreateAppDomain(string domain, string shadowFiles)
         {
-            AppDomainSetup appDomainSetup = new AppDomainSetup();
-            appDomainSetup.ApplicationBase = Environment.CurrentDirectory + @"\" + shadowFiles;
-            appDomainSetup.ShadowCopyFiles = "true";
+            //AppDomainSetup appDomainSetup = new AppDomainSetup();
+            //appDomainSetup.ApplicationBase = Environment.CurrentDirectory + @"\" + shadowFiles;
+            //appDomainSetup.ShadowCopyFiles = "true";
 
-            strategy.AppDomain = AppDomain.CreateDomain(domain, null, appDomainSetup);
+            //strategy.AppDomain = AppDomain.CreateDomain(domain, null, appDomainSetup);
         }
 
         #region IDisposable Members

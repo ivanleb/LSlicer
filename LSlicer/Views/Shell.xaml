@@ -12,7 +12,8 @@
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:xcad="http://schemas.xceed.com/wpf/xaml/avalondock"
         xmlns:Fluent="urn:fluent-ribbon"
-        xmlns:helix="clr-namespace:HelixToolkit.Wpf;assembly=HelixToolkit.Wpf"
+        xmlns:helix="clr-namespace:HelixToolkit.SharpDX.Core;assembly=HelixToolkit.SharpDX.Core"
+        xmlns:helix1="http://helix-toolkit.org/wpf"
         xmlns:tvx="clr-namespace:System.Windows.Controls;assembly=DotNetProjects.TreeViewEx"
 
         mc:Ignorable="d"
@@ -271,7 +272,7 @@
 
         </Fluent:Ribbon>
         <Grid Grid.Row="1" AllowDrop="True">
-            <helix:HelixViewport3D x:Name="viewPort3d" 
+            <helix1:HelixViewport3D x:Name="viewPort3d" 
                                    AllowDrop="True"
                                    ZoomExtentsWhenLoaded="True"
                                    ShowCoordinateSystem="True"
@@ -279,7 +280,7 @@
                                    ItemsSource="{Binding Objects, Delay=1000}"
                                    RenderTransformOrigin="0.5,0.5"
                                    ShowCameraInfo="False"
-                                   Background="{helix:LinearGradientBrush Black, Black}"
+                                   Background="{helix1:LinearGradientBrush Black, Black}"
                                    PreviewMouseUp="viewPort3d_MouseDown"
                                    IsViewCubeEdgeClicksEnabled="True" 
                                    IsChangeFieldOfViewEnabled="True" 
@@ -294,10 +295,10 @@
                     <helpers:PushBinding TargetProperty="CursorPosition" Path="CursorOnElementPosition"/>
                 </helpers:PushBindingManager.PushBindings>
 
-                <helix:HelixViewport3D.DefaultCamera>
+                <helix1:HelixViewport3D.DefaultCamera>
                     <PerspectiveCamera Position="-20 -40 20" LookDirection="17 34 -17" UpDirection="0 0 1" />
-                </helix:HelixViewport3D.DefaultCamera>
-            </helix:HelixViewport3D>
+                </helix1:HelixViewport3D.DefaultCamera>
+            </helix1:HelixViewport3D>
 
             <StackPanel x:Name="CursorPositionCard"
                         HorizontalAlignment="Center"
@@ -323,7 +324,7 @@
                                    Margin="5,0,4,0"/>
                         <TextBox Style="{StaticResource PositionInfoTetxtStyle}"
                                  Background="{Binding Path=Background, RelativeSource={RelativeSource TemplatedParent}}"
-                                 Text="{Binding Path=CursorOnElementPosition.X, ElementName=viewPort3d, StringFormat={}{0:f1}, FallbackValue=---}" 
+                                 Text="{Binding Path=CursorOnElementPosition.Value.X, ElementName=viewPort3d, StringFormat={}{0:f1}, FallbackValue=---}" 
                                  TextChanged="TextBox_TextChanged"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="2">
@@ -331,7 +332,7 @@
                                    Margin="5,0,4,0" />
                         <TextBox Style="{StaticResource PositionInfoTetxtStyle}"
                                  Background="{Binding Path=Background, RelativeSource={RelativeSource TemplatedParent}}"
-                                 Text="{Binding Path=CursorOnElementPosition.Y, ElementName=viewPort3d, StringFormat={}{0:f1}, FallbackValue=---}"
+                                 Text="{Binding Path=CursorOnElementPosition.Value.Y, ElementName=viewPort3d, StringFormat={}{0:f1}, FallbackValue=---}"
                                  TextChanged="TextBox_TextChanged"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="2">
@@ -339,7 +340,7 @@
                                    Margin="5,0,4,0" />
                         <TextBox Style="{StaticResource PositionInfoTetxtStyle}"
                                  Background="{Binding Path=Background, RelativeSource={RelativeSource TemplatedParent}}"
-                                 Text="{Binding Path=CursorOnElementPosition.Z, ElementName=viewPort3d, StringFormat={}{0:f1}, FallbackValue=---}"
+                                 Text="{Binding Path=CursorOnElementPosition.Value.Z, ElementName=viewPort3d, StringFormat={}{0:f1}, FallbackValue=---}"
                                  TextChanged="TextBox_TextChanged"/>
                     </StackPanel>
                 </StackPanel>

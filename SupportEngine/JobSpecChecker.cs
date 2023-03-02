@@ -21,7 +21,7 @@ namespace SupportEngine
                 isOk = false;
             }
 
-            if (jobSpecification.JobType != EJobType.MakeSupports)
+            if (jobSpecification.JobType != EngineHelpers.EJobType.MakeSupports)
             {
                 Logger.Log.Info($"This job is not support engine job.");
                 isOk = false;

@@ -5,7 +5,6 @@ using System.Linq;
 using LSlicer.Data.Interaction;
 using LSlicer.Data.Model;
 using LSlicer.BL.Interaction;
-using System.Management.Instrumentation;
 
 namespace LSlicer.BL.Domain
 {

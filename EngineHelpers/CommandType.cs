@@ -1,4 +1,5 @@
-﻿public enum EJobType 
+﻿namespace EngineHelpers;
+public enum EJobType 
 {
     Slice,
     MakeSupports

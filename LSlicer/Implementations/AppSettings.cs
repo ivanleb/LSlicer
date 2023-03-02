@@ -23,14 +23,14 @@ namespace LSlicer.Implementations
             base.Save();
             var properties = typeof(AppSettings).GetProperties();
             XmlDocument xml = new XmlDocument();
-            xml.Load(AppDomain.CurrentDomain.SetupInformation.ConfigurationFile);
+            //xml.Load(AppDomain.CurrentDomain.SetupInformation.ConfigurationFile);
             properties.Skip(1).ToList().ForEach(property =>
             {
                 XmlNode node = xml.SelectSingleNode($"configuration/userSettings/LaserAprBuildProcessor.Properties.Settings/setting[@name='{property.Name}']");
                 if (node != null)
                     node.ChildNodes[0].InnerText = property.GetValue(this).ToString();
             });
-            xml.Save(AppDomain.CurrentDomain.SetupInformation.ConfigurationFile);
+           // xml.Save(AppDomain.CurrentDomain.SetupInformation.ConfigurationFile);
         }
     }
 }

@@ -3,7 +3,7 @@
     using LSlicer.BL.Interaction;
     using LSlicer.Implementations;
     using System.Data.Entity.Migrations;
-    using System.Data.SQLite.EF6.Migrations;
+    //using System.Data.SQLite.EF6.Migrations;
 
     internal sealed class Configuration : DbMigrationsConfiguration<AppSettingsContext>
     {
@@ -11,7 +11,7 @@
         {
             AutomaticMigrationsEnabled = true;
             AutomaticMigrationDataLossAllowed = true;
-            SetSqlGenerator("System.Data.SQLite", new SQLiteMigrationSqlGenerator());
+            //SetSqlGenerator("System.Data.SQLite", new SQLiteMigrationSqlGenerator());
         }
         protected override void Seed(AppSettingsContext context)
         {

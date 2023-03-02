@@ -4,7 +4,7 @@ using LSlicer.Data.Interaction.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Management.Instrumentation;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -42,7 +42,7 @@ namespace LSlicer.BL.Domain
         public IReadOnlyList<IOperation> GetOperationsByPart(int partId)
         {
             if (!IsOperationListExists(partId))
-                throw new InstanceNotFoundException($"Cannot find operations for part with Id {partId}");
+                throw new ActionNotSupportedException($"Cannot find operations for part with Id {partId}");
 
             return GetOperationsByPartSafe(partId);
         }
@@ -86,7 +86,7 @@ namespace LSlicer.BL.Domain
         public void RemoveOperationsForPart(int partId)
         {
             if (!IsOperationListExists(partId))
-                throw new InstanceNotFoundException($"Cannot find operations for part with Id {partId}");
+                throw new ActionNotSupportedException($"Cannot find operations for part with Id {partId}");
 
             _partToOperationMap.Remove(partId);
         }
@@ -103,7 +103,7 @@ namespace LSlicer.BL.Domain
             public bool Redo(int partId)
             {
                 if (!IsOperationListExists(_undoOperationsMap, partId))
-                    throw new InstanceNotFoundException($"Cannot find operations for part with Id {partId}");
+                    throw new ActionNotSupportedException($"Cannot find operations for part with Id {partId}");
 
                 IOperation operation = _undoOperationsMap[partId].Pop();
                 if (operation == default)
@@ -116,7 +116,7 @@ namespace LSlicer.BL.Domain
             public bool Undo(int partId)
             {
                 if(!IsOperationListExists(_partToOperationMap, partId))
-                    throw new InstanceNotFoundException($"Cannot find operations for part with Id {partId}");
+                    throw new ActionNotSupportedException($"Cannot find operations for part with Id {partId}");
                 IOperation operation = _partToOperationMap[partId].Pop();
                 if (operation == default)
                     return false;
