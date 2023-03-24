@@ -14,7 +14,7 @@
         xmlns:Fluent="urn:fluent-ribbon"
         xmlns:helix="clr-namespace:HelixToolkit.SharpDX.Core;assembly=HelixToolkit.SharpDX.Core"
         xmlns:helix1="http://helix-toolkit.org/wpf"
-
+        xmlns:tvx="clr-namespace:System.Windows.Controls;assembly=DotNetProjects.TreeViewEx"
         mc:Ignorable="d"
         Title="LASlicer" Height="450" Width="800"
         WindowState="Maximized"
@@ -364,7 +364,7 @@
                 <StackPanel >
                     <ScrollViewer MaxHeight="600" VerticalScrollBarVisibility="Auto" Style="{StaticResource LeftScrollViewer}">
                         <Expander Header="Детали" >
-                            <!--<tvx:TreeViewEx Background="Transparent"
+                            <tvx:TreeViewEx Background="Transparent"
                                         ItemsSource="{Binding Path=Parts, UpdateSourceTrigger=PropertyChanged}"
                                         SelectionMode="Multiple"
                                         SelectedItems="{Binding Path=SelectedParts, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
@@ -432,7 +432,7 @@
                                         </StackPanel>
                                     </DataTemplate>
                                 </tvx:TreeViewEx.ItemTemplate>
-                            </tvx:TreeViewEx>-->
+                            </tvx:TreeViewEx>
                         </Expander>
                     </ScrollViewer>
                 </StackPanel>

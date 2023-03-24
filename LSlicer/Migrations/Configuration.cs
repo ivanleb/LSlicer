@@ -5,7 +5,7 @@
     using System.Data.Entity.Migrations;
     //using System.Data.SQLite.EF6.Migrations;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<AppSettingsContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<AppSettingsSQLiteContext>
     {
         public Configuration()
         {
@@ -13,9 +13,9 @@
             AutomaticMigrationDataLossAllowed = true;
             //SetSqlGenerator("System.Data.SQLite", new SQLiteMigrationSqlGenerator());
         }
-        protected override void Seed(AppSettingsContext context)
+        protected override void Seed(AppSettingsSQLiteContext context)
         {
-            IAppSettings settings = AppSettings.DefaultValue;
+            IAppSettings settings = AppSettingsResourceFile.DefaultValue;
             DbAppSettings defaultSettings = new DbAppSettings();
             defaultSettings.CopyFrom(settings);
 

@@ -6,9 +6,9 @@ namespace LSlicer.Implementations
 {
     public class UserIdentityController
     {
-        private readonly AppSettingsContext _context;
+        private readonly AppSettingsSQLiteContext _context;
 
-        public UserIdentityController(AppSettingsContext context)
+        public UserIdentityController(AppSettingsSQLiteContext context)
         {
             _context = context;
         }

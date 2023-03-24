@@ -9,17 +9,17 @@ using System.Data.SQLite.EF6;
 
 namespace LSlicer.Implementations
 {
-    public class AppSettingsContext : DbContext
+    public class AppSettingsSQLiteContext : DbContext
     {
         public DbSet<DbAppSettings> Settings { get; set; }
         public DbSet<User> Users { get; set; }
 
-        public AppSettingsContext() : base("name=DefaultConnection")
+        public AppSettingsSQLiteContext() : base("name=DefaultConnection")
         {
             DbConfiguration.SetConfiguration(new SQLiteLoggedConfiguration());
         }
 
-        public AppSettingsContext(ILoggerService logger) : base("name=DefaultConnection")
+        public AppSettingsSQLiteContext(ILoggerService logger) : base("name=DefaultConnection")
         {
             DbConfiguration.SetConfiguration(new SQLiteLoggedConfiguration(logger));
         }
@@ -52,11 +52,11 @@ namespace LSlicer.Implementations
         }
     }
 
-    public class AppSettingsContextFactory : IDbContextFactory<AppSettingsContext>
+    public class AppSettingsContextFactory : IDbContextFactory<AppSettingsSQLiteContext>
     {
-        public AppSettingsContext Create()
+        public AppSettingsSQLiteContext Create()
         {
-            return new AppSettingsContext();
+            return new AppSettingsSQLiteContext();
         }
     }
 

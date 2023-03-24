@@ -7,10 +7,10 @@ namespace LSlicer.Implementations
 {
     public class DbCurrentAppSettings : IAppSettings
     {
-        private AppSettingsContext _context;
+        private AppSettingsSQLiteContext _context;
         private DbAppSettings _settings;
 
-        public DbCurrentAppSettings(AppSettingsContext context, AppSettings defaultSettings)
+        public DbCurrentAppSettings(AppSettingsSQLiteContext context, AppSettingsResourceFile defaultSettings)
         {
             _context = context;
             _settings = _context.Settings.FirstOrDefault();

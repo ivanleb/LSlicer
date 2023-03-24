@@ -17,7 +17,6 @@ namespace LSlicer.Views
 
         public Shell()
         {
-            //DataContext = new ShellViewModel();
             InitializeComponent();
             //viewPort3d.RotateGesture = new MouseGesture(MouseAction.RightClick);
             viewPort3d.Children.Add(new ModelVisual3D());

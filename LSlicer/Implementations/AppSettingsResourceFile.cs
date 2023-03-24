@@ -6,11 +6,11 @@ using System.Xml;
 
 namespace LSlicer.Implementations
 {
-    public class AppSettings : Settings, IAppSettings
+    public class AppSettingsResourceFile : Settings, IAppSettings
     {
-        private static AppSettings defaultInstance = ((AppSettings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new AppSettings())));
+        private static AppSettingsResourceFile defaultInstance = ((AppSettingsResourceFile)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new AppSettingsResourceFile())));
 
-        public static AppSettings DefaultValue
+        public static AppSettingsResourceFile DefaultValue
         {
             get
             {
@@ -21,7 +21,7 @@ namespace LSlicer.Implementations
         public override void Save()
         {
             base.Save();
-            var properties = typeof(AppSettings).GetProperties();
+            var properties = typeof(AppSettingsResourceFile).GetProperties();
             XmlDocument xml = new XmlDocument();
             //xml.Load(AppDomain.CurrentDomain.SetupInformation.ConfigurationFile);
             properties.Skip(1).ToList().ForEach(property =>
