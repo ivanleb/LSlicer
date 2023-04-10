@@ -64,38 +64,6 @@ namespace LSlicer.Infrastructure
     {
     }
 
-    public class UserIdentitySentEvent : PubSubEvent<IUserIdentity>
-    {
-    }
-
-    public class UserIdentityUpdateEvent : PubSubEvent<IUserIdentity>
-    {
-    }
-
-    public class UserIdentityRemoveEvent : PubSubEvent<IUserIdentity>
-    {
-    }
-
-    public class UserIdentityGetEvent : PubSubEvent<IUserIdentity>
-    {
-    }
-
-    public class UserIdentityCreateEvent : PubSubEvent<IUserIdentity>
-    {
-    }
-
-    public class UserGetAutorizedStateEvent : PubSubEvent
-    {
-    }
-
-    public class UserSentAutorizedStateEvent : PubSubEvent<Boolean>
-    {
-    }
-
-    public class UserSentAutorizedUserEvent : PubSubEvent<IUserIdentity>
-    {
-    }
-
     public class ReloadPartInfoUIListEvent : PubSubEvent
     {
     }

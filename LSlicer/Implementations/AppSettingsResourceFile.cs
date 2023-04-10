@@ -32,10 +32,5 @@ namespace LSlicer.Implementations
             });
            // xml.Save(AppDomain.CurrentDomain.SetupInformation.ConfigurationFile);
         }
-
-        public void SetForUser(int id)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

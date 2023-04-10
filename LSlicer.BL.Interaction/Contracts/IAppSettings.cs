@@ -19,7 +19,6 @@ namespace LSlicer.BL.Interaction
         string CurrentChangesPath { get; set; }
         TimeSpan AutoSaveInterval { get; set; }
         TimeSpan WaitingUserActionTimeout { get; set; }
-        void SetForUser(int id);
     }
 
     public static class AppSettingsExtention

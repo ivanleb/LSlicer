@@ -61,9 +61,7 @@ namespace LSlicer
                 _containerRegistry.RegisterSingleton<IInstallPluginStrategy, ReflectionPluginInstaller>();
                 _containerRegistry.RegisterSingleton<IPluginManager, PluginManager>();
                 _containerRegistry.RegisterSingleton<IPluginsActivator, ReflectionPluginInstaller>();
-                _containerRegistry.RegisterInstance(appSettingsContext);
-                _containerRegistry.RegisterSingleton<UserIdentityController>();
-                _containerRegistry.RegisterSingleton<IdentityController>();
+                _containerRegistry.RegisterInstance<IDbContext>(appSettingsContext);
                 _containerRegistry.RegisterSingleton<SettingsController>();
                 _containerRegistry.RegisterSingleton<PresenterModel>();
                 _containerRegistry.RegisterSingleton<WorkTaskModel>();

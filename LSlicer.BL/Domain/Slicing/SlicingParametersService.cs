@@ -29,7 +29,7 @@ namespace LSlicer.BL.Domain
             _slicingParametersRepository = slicingParametersRepository;
             _setSlicingParametersProvider = setSlicingParametersProvider;
             _appSettings = appSettings;
-            //_actualSlicingParameters.Add(int.MinValue, new List<(string,FileInfo)> { ("default", new FileInfo(PathHelper.Resolve(_appSettings.DefaultSlicingParameters))) });
+            _actualSlicingParameters.Add(int.MinValue, new List<(string,FileInfo)> { ("default", new FileInfo(PathHelper.Resolve(_appSettings.DefaultSlicingParameters))) });
             _logger = logger;
         }
 

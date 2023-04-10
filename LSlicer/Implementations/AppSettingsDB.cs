@@ -24,10 +24,5 @@ namespace LaserAprSlicer.Infrastructure.DB
         public string CurrentChangesPath { get; set; }
         public TimeSpan AutoSaveInterval { get; set; }
         public TimeSpan WaitingUserActionTimeout { get; set; }
-
-        public void SetForUser(int id)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

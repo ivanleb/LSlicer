@@ -19,10 +19,6 @@
             DbAppSettings defaultSettings = new DbAppSettings();
             defaultSettings.CopyFrom(settings);
 
-            var entrySettings = context.Settings.Add(defaultSettings);
-
-            context.Users.Add(new User { Name = "default", PasswordHash = "000000".GetHashCode().ToString(), Settings = entrySettings });
-
             context.SaveChanges();
         }
     }

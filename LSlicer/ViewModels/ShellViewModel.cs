@@ -30,7 +30,7 @@ namespace LSlicer.ViewModels
         private PresenterModel _presenterModel;
         private WorkTaskModel _workTaskModel;
         private SettingsController _settingsModel;
-        private IdentityController _identityModel;
+        //private IdentityController _identityModel;
         private ParametersModel _parametersModel;
         private PluginController _pluginModel;
         private ILoggerService _logger;
@@ -184,7 +184,7 @@ namespace LSlicer.ViewModels
             WorkTaskModel workTaskModel,
             ILoggerService loggerService,
             IEventAggregator ea,
-            IdentityController identityModel,
+            //IdentityController identityModel,
             SettingsController settingsModel,
             ParametersModel parametersModel, 
             PluginController pluginModel,
@@ -194,7 +194,7 @@ namespace LSlicer.ViewModels
             _presenterModel = presenterModel;
             _workTaskModel = workTaskModel;
             _logger = loggerService;
-            _identityModel = identityModel;
+            //_identityModel = identityModel;
             _settingsModel = settingsModel;
             _status = "start";
             _statusUploader = new StatusUploader((s) => Status = s);
@@ -303,10 +303,6 @@ namespace LSlicer.ViewModels
         private DelegateCommand _openAdditionSettingsCommand;
         public DelegateCommand OpenAdditionSettingsCommand =>
             _openAdditionSettingsCommand ?? (_openAdditionSettingsCommand = new DelegateCommand(() => _settingsModel.RaiseAdditionSettingsView()));
-
-        private DelegateCommand _openLoginCommand;
-        public DelegateCommand OpenLoginCommand =>
-            _openLoginCommand ?? (_openLoginCommand = new DelegateCommand(() => _identityModel.RaiseLoginView()));
 
         private DelegateCommand _undoLastActionCommand;
         public DelegateCommand UndoLastActionCommand =>

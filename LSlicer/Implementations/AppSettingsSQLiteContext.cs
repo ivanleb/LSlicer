@@ -12,7 +12,6 @@ namespace LSlicer.Implementations
     public class AppSettingsSQLiteContext : DbContext
     {
         public DbSet<DbAppSettings> Settings { get; set; }
-        public DbSet<User> Users { get; set; }
 
         public AppSettingsSQLiteContext() : base("name=DefaultConnection")
         {
@@ -26,10 +25,6 @@ namespace LSlicer.Implementations
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<DbAppSettings>().HasKey(i => i.Id)
-                .HasRequired(i => i.User)
-                .WithRequiredPrincipal(i => i.Settings);
-            modelBuilder.Entity<User>().HasKey(i => i.Id);
         }
     }
 

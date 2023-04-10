@@ -10,7 +10,6 @@ namespace LSlicer.Implementations
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public User User { get; set; }
         public string SlicingEnginePath { get; set; }
         public string SupportEnginePath { get; set; }
         public string WorkingDirectory { get; set; }
@@ -42,10 +41,5 @@ namespace LSlicer.Implementations
         }
 
         public object Clone() => this.MemberwiseClone();
-
-        public void SetForUser(int id)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

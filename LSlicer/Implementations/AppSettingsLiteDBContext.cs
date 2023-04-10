@@ -1,11 +1,14 @@
 ﻿using LiteDB;
 using LSlicer.BL.Interaction;
+using LSlicer.BL.Interaction.Contracts;
+using LSlicer.Implementations;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace LaserAprSlicer.Infrastructure.DB
 {
-    public class AppSettingsLiteDBContext : IDisposable
+    public class AppSettingsLiteDBContext : IDbContext, IDisposable
     {
         private readonly LiteDatabase _db;
         public AppSettingsLiteDBContext(string dbPath) 
@@ -23,6 +26,24 @@ namespace LaserAprSlicer.Infrastructure.DB
             if (settings != null)
                 return settings;
             throw new NullReferenceException("DB does not contain settings");
+        }
+
+        private List<IAppSettings> _appSettings = new List<IAppSettings>();
+        public List<IAppSettings> AppSettings 
+        {
+            get
+            {
+                if(_appSettings == null)
+                    _appSettings = GetSettingsFromDb();
+                return _appSettings;
+            }
+        }
+
+        private List<IAppSettings> GetSettingsFromDb()
+        {
+            ILiteCollection<AppSettingsDB> collection = _db.GetCollection<AppSettingsDB>("settings");
+            List<IAppSettings> settings = collection.Find(x => x != null).Select(x => x as IAppSettings).ToList();
+            return settings;
         }
 
         public void Dispose()
@@ -59,6 +80,11 @@ namespace LaserAprSlicer.Infrastructure.DB
             initialSettings.AutoSaveInterval = TimeSpan.FromSeconds(20);
             initialSettings.WaitingUserActionTimeout = TimeSpan.FromMinutes(3);
             return initialSettings;
+        }
+
+        public void SaveChanges()
+        {
+            throw new NotImplementedException();
         }
     }
 }

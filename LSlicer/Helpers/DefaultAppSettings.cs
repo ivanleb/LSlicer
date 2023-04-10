@@ -19,10 +19,5 @@ namespace LSlicer.Helpers
         public string CurrentChangesPath { get; set; } = "";
         public TimeSpan AutoSaveInterval { get; set; } = TimeSpan.FromSeconds(10000);
         public TimeSpan WaitingUserActionTimeout { get; set; } = TimeSpan.FromSeconds(10000);
-
-        public void SetForUser(int id)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

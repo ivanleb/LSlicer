@@ -57,11 +57,6 @@ namespace UtilModule
                 }
             }
         }
-
-        public void SetForUser(int id)
-        {
-            throw new NotImplementedException();
-        }
     }
 
     public class UIPair

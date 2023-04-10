@@ -17,7 +17,6 @@ namespace UtilModule
         public void OnInitialized(IContainerProvider containerProvider)
         {
             _regionManager.RegisterViewWithRegion("AppSettingsRegion", typeof(AppSettingsView));
-            _regionManager.RegisterViewWithRegion("LoginRegion", typeof(LoginPage));
         }
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
