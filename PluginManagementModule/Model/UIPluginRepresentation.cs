@@ -1,4 +1,4 @@
-﻿using PluginFramework;
+﻿using PluginFramework.Core;
 
 namespace PluginManagementModule.Model
 {

@@ -1,7 +1,7 @@
 ﻿using LSlicer.BL.Interaction;
 using LSlicer.Data.Interaction;
 using LSlicer.Data.Interaction.Contracts;
-using PluginFramework;
+using PluginFramework.Core;
 using Prism.Events;
 using System;
 using System.Collections.Generic;
@@ -83,6 +83,9 @@ namespace LSlicer.Infrastructure
     {
     }
     public class MakePluginEvent : PubSubEvent<(string pluginPath, string packagePath)>
+    {
+    }
+    public class CancelMakePluginEvent : PubSubEvent<(string pluginPath, string packagePath)>
     {
     }
     public class UninstallPluginEvent : PubSubEvent<IPlugin>

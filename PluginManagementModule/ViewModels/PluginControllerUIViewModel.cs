@@ -1,10 +1,13 @@
-﻿using LSlicer.Infrastructure;
+﻿using Dynamitey;
+using LSlicer.Helpers;
+using LSlicer.Infrastructure;
 using Microsoft.Win32;
-using PluginFramework;
+using PluginFramework.Core;
 using PluginManagementModule.Model;
 using Prism.Commands;
 using Prism.Events;
 using Prism.Mvvm;
+
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -88,8 +91,28 @@ namespace PluginManagementModule.ViewModels
 
         void ExecuteMakePluginCommand()
         {
-            string pluginPath = WindowHelper.ChooseFolder(AppDomain.CurrentDomain.BaseDirectory, "Choose plugin folder");
-            string packagePath = WindowHelper.ChooseFolder(AppDomain.CurrentDomain.BaseDirectory, "Choose target package folder");
+            var pluginPath = WindowHelper.ChooseFolder(AppDomain.CurrentDomain.BaseDirectory, "Choose plugin folder")
+            switch
+            {
+                Maybe<string>.Some pp => pp.Value,
+                Maybe<string>.None _ => string.Empty,
+                _ => string.Empty
+            };
+
+            if (string.IsNullOrEmpty(pluginPath))
+                return;
+
+            var packagePath = WindowHelper.ChooseFolder(AppDomain.CurrentDomain.BaseDirectory, "Choose target package folder") 
+            switch
+            {
+                Maybe<string>.Some pp => pp.Value,
+                Maybe<string>.None _ => string.Empty,
+                _ => string.Empty
+            };
+
+            if (string.IsNullOrEmpty(pluginPath))
+                return;
+
             _ea.GetEvent<MakePluginEvent>().Publish((pluginPath, packagePath));
         }
 

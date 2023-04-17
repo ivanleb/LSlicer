@@ -1,16 +1,18 @@
 ﻿using ICSharpCode.SharpZipLib.Zip;
 using LSlicer.BL.Interaction;
-using PluginFramework;
+using PluginFramework.Core;
+using PluginFramework.Logging;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Xml.Linq;
 
 namespace ZipPartsPlugin
 {
-    internal class ZipPlugin : PluginBase<IPartService, ILoggerService>, IPlugin
+    internal class ZipPlugin : PluginBase<IPartService, ILogger>, IPlugin
     {
-        private ILoggerService _logger;
+        private ILogger _logger;
         public ZipPlugin(string name) : base(name)
         {
         }
@@ -19,7 +21,7 @@ namespace ZipPartsPlugin
         {
             spec.Progress.Report("Start zipping");
 
-            if(_logger == null)
+            if (_logger == null)
                 _logger = ServiceContainerItem2.Value;
 
             IPartService partService = ServiceContainerItem1.Value;
@@ -38,7 +40,7 @@ namespace ZipPartsPlugin
         {
             try
             {
-                if (paths.Count == 0 )
+                if (paths.Count == 0)
                     throw new ArgumentException("No parts for saving");
 
                 DirectoryInfo outputDectory = new DirectoryInfo(spec.ResultPath);
@@ -78,7 +80,7 @@ namespace ZipPartsPlugin
             catch (Exception e)
             {
                 spec.Progress.Report($"[{Name}] Error: {e.Message}");
-                _logger.Error($"[{nameof(ZipPlugin)}]", e);
+                _logger.Error($"[{nameof(ZipPlugin)}] {e.Message}");
             }
         }
     }

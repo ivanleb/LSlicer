@@ -1,5 +1,4 @@
-﻿using Microsoft.WindowsAPICodePack.Dialogs;
-using PluginFramework;
+﻿using PluginFramework.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,27 +26,16 @@ namespace ZipPartsPlugin
             string zipfilePath = "";
 
             string initialDirectory = String.IsNullOrEmpty(spec.ResultPath) ? AppDomain.CurrentDomain.BaseDirectory : spec.ResultPath;
-            var dlg = new CommonOpenFileDialog();
-            dlg.Title = "Choose folder";
-            dlg.IsFolderPicker = true;
-            dlg.InitialDirectory = initialDirectory;
-
-            dlg.AddToMostRecentlyUsedList = true;
-            dlg.AllowNonFileSystemItems = false;
-            dlg.DefaultDirectory = initialDirectory;
-            dlg.EnsureFileExists = true;
-            dlg.EnsurePathExists = true;
-            dlg.EnsureReadOnly = false;
-            dlg.EnsureValidNames = true;
-            dlg.Multiselect = false;
-            dlg.ShowPlacesList = true;
-
-
-            if (dlg.ShowDialog() == CommonFileDialogResult.Ok)
+            var dlg = new FolderBrowserDialog()
             {
-                zipfilePath = dlg.FileName;
-            }
+                Description = "Choose folder",
+                InitialDirectory = initialDirectory,
+                ShowHiddenFiles = false,
+            }; 
 
+            if (dlg.ShowDialog() == DialogResult.OK)
+                zipfilePath = dlg.SelectedPath;
+            
             Progress<string> progress = new Progress<string>();
             ZipWindow window = new ZipWindow();
             progress.ProgressChanged += (s, e) => window.AddToStatus(e);

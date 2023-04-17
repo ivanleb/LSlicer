@@ -2,8 +2,8 @@
   <PropertyGroup>
     <TargetFramework>net7.0-windows</TargetFramework>
     <OutputType>Library</OutputType>
-    <RootNamespace>LaserAprSlicer.Helpers</RootNamespace>
-    <AssemblyName>LaserAprSlicer.Helpers</AssemblyName>
+    <RootNamespace>LSlicer.Helpers</RootNamespace>
+    <AssemblyName>LSlicer.Helpers</AssemblyName>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">

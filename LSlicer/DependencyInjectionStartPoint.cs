@@ -7,7 +7,6 @@ using LSlicer.Implementations;
 using LSlicer.Model;
 using LSlicer.ViewModels;
 using PluginFramework.CustomPlugin.Installation;
-using PluginFramework;
 using Prism.Ioc;
 using System;
 using System.Collections.Generic;
@@ -31,6 +30,14 @@ using System.IO;
 using CommonServiceLocator;
 using System.ComponentModel;
 using Unity.ServiceLocation;
+using PluginFramework.CustomPlugin.Zipping;
+using PluginFramework.Core;
+using PluginFramework.Core.Installation;
+using PluginFramework.Core.Loading;
+using PluginFramework.Core.Configuration;
+using PluginFramework.Logging;
+using PluginFramework.Implementations;
+using PluginFramework.Implementations.Loading;
 
 namespace LSlicer
 {
@@ -60,7 +67,16 @@ namespace LSlicer
                 _containerRegistry.RegisterSingleton<ICloseApplicationHandler, CloseAppHandler>();
                 _containerRegistry.RegisterSingleton<IInstallPluginStrategy, ReflectionPluginInstaller>();
                 _containerRegistry.RegisterSingleton<IPluginManager, PluginManager>();
-                _containerRegistry.RegisterSingleton<IPluginsActivator, ReflectionPluginInstaller>();
+                _containerRegistry.RegisterSingleton<IPluginsActivator, ReflectionPluginActivator>();
+                _containerRegistry.RegisterSingleton<IPluginConfigStorage, PluginJSONConfigStorage>();
+                _containerRegistry.RegisterSingleton<IPluginLoader, ReflectionPlugnLoader>();
+                _containerRegistry.RegisterSingleton<IPluginChecker, ReflectionPluginChecker>();
+                _containerRegistry.RegisterSingleton<IPluginInstancesCreator<IPlugin>, ReflectionPluginInstancesCreator<IPlugin>>();
+                _containerRegistry.RegisterSingleton<IZipFileFilter, PluginFrameworkFilesFilter>();
+                _containerRegistry.RegisterSingleton<ILogger, DebugPluginLogger>();
+                _containerRegistry.RegisterSingleton<PluginGlobalState>();
+                _containerRegistry.RegisterSingleton<LoadContextContainer>();
+                _containerRegistry.RegisterSingleton<IZipper, SharpZipper>();
                 _containerRegistry.RegisterInstance<IDbContext>(appSettingsContext);
                 _containerRegistry.RegisterSingleton<SettingsController>();
                 _containerRegistry.RegisterSingleton<PresenterModel>();

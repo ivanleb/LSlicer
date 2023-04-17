@@ -2,15 +2,14 @@
 using LSlicer.Helpers;
 using LSlicer.Infrastructure;
 using LSlicer.Views;
-using PluginFramework;
+using PluginFramework.Core;
+using PluginFramework.CustomPlugin.Helpers;
 using Prism.Events;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Windows;
 using Unity;
-using System.Runtime.Remoting;
-using PluginFramework.CustomPlugin.Helpers;
 
 namespace LSlicer.Model
 {
